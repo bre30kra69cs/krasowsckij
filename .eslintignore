@@ -32,3 +32,4 @@ yarn-error.log*
 .vercel
 
 next.config.js
+lint-staged.config.js

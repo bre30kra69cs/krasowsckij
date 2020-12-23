@@ -8,8 +8,10 @@
     "start": "next start",
     "eslint": "npx eslint src --ext .ts,.tsx",
     "prettier": "npx prettier --check src",
-    "typescript": "npx tsc",
-    "check": "npm run eslint & npm run prettier & npm run typescript"
+    "typescript": "npx tsc --build ./tsconfig.json",
+    "format": "npm run eslint & npm run prettier",
+    "check": "npm run eslint & npm run prettier & npm run typescript",
+    "lint-staged": "npx lint-staged & npm run typescript"
   },
   "dependencies": {
     "@linaria/babel-preset": "^3.0.0-beta.1",
@@ -18,12 +20,14 @@
     "@linaria/shaker": "^3.0.0-beta.1",
     "@linaria/webpack-loader": "^3.0.0-beta.1",
     "@zeit/next-css": "^1.0.1",
+    "classnames": "^2.2.6",
     "next": "10.0.4",
     "react": "17.0.1",
     "react-dom": "17.0.1"
   },
   "devDependencies": {
     "@babel/core": "^7.12.10",
+    "@types/classnames": "^2.2.11",
     "@types/node": "^14.14.14",
     "@types/react": "^17.0.0",
     "@types/react-dom": "^17.0.0",
@@ -32,6 +36,8 @@
     "eslint": "^7.16.0",
     "eslint-config-prettier": "^7.1.0",
     "eslint-plugin-react": "^7.21.5",
+    "husky": "^5.0.6",
+    "lint-staged": "^10.5.3",
     "prettier": "^2.2.1",
     "typescript": "^4.1.3"
   }

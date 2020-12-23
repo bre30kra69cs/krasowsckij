@@ -3,11 +3,3 @@ body,
 #__next {
   height: 100%;
 }
-
-#__next {
-  display: flex;
-  min-height: 100%;
-  flex-grow: 1;
-  flex-shrink: 0;
-  flex-basis: auto;
-}
