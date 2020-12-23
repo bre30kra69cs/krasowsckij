@@ -11,7 +11,7 @@
     "typescript": "npx tsc --build ./tsconfig.json",
     "format": "npm run eslint & npm run prettier",
     "check": "npm run eslint & npm run prettier & npm run typescript",
-    "lint-staged": "npx lint-staged & npm run typescript"
+    "lint-staged": "npm run typescript & npx lint-staged"
   },
   "dependencies": {
     "@linaria/babel-preset": "^3.0.0-beta.1",
