@@ -1,3 +1,3 @@
 module.exports = {
-  '*.ts?(x)': 'npm run format'
+  '*': 'npm run format'
 };
