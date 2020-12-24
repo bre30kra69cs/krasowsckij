@@ -1,7 +1,7 @@
-import cn from 'classnames';
 import {css} from '@linaria/core';
 import {CFC} from '../types/react';
 import {unit, color} from '../design';
+import {bem} from '../bem';
 
 const main = css`
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
@@ -12,5 +12,5 @@ const main = css`
 `;
 
 export const Text: CFC = ({children, className}) => {
-  return <p className={cn(main, className)}>{children}</p>;
+  return <p className={bem(main, className)}>{children}</p>;
 };

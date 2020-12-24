@@ -3,10 +3,12 @@ import {CFC} from '../types/react';
 import {unit, color} from '../design';
 import {Row} from './Row';
 import {Link} from './Link';
+import {useInter} from '../inter';
+import {capitalize} from '../utils/string';
 
 const main = css`
   height: ${unit(5)}px;
-  background-color: ${color('gray')};
+  background-color: ${color('grayShade')};
   justify-content: center;
 `;
 
@@ -15,10 +17,13 @@ const link = css`
 `;
 
 export const Header: CFC = () => {
+  const {t} = useInter();
+
   return (
     <Row className={main}>
-      <Link className={link}>Home</Link>
-      <Link className={link}>Articles</Link>
+      <Link className={link}>{capitalize(t('home'))}</Link>
+      <Link className={link}>CSS</Link>
+      <Link className={link}>TS</Link>
     </Row>
   );
 };

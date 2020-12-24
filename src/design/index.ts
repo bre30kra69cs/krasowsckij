@@ -6,9 +6,9 @@ export const PALETTE = {
   grayShade: '#505257',
   grayDark: '#3f4145',
   black: '#000000',
-  pink: '#8158e8',
-  pinkShade: '#6c4ac2',
-  pinkDark: '#553a99'
+  pink: '#cf8fff',
+  pinkShade: '#a174c2',
+  pinkDark: '#521180'
 };
 
 export const color = (key: keyof typeof PALETTE) => {
