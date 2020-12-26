@@ -6,15 +6,33 @@ import {useInter} from '../inter';
 import {capitalize} from '../utils/string';
 import {Row} from './Row';
 import {Link} from './Link';
+import {BuildButton} from './BuildButton';
+import {bem} from '../bem';
 
 const main = css`
   justify-content: center;
-  background-color: ${color('majorShade')};
-  height: ${unit(4, px)};
+  background-color: ${color('majorDark')};
+  height: ${unit(6, px)};
 `;
 
 const link = css`
   padding: 0 ${unit(3, px)};
+`;
+
+const segment = css`
+  flex: 1;
+
+  &__start {
+    justify-content: flex-start;
+  }
+
+  &__center {
+    justify-content: center;
+  }
+
+  &__end {
+    justify-content: flex-end;
+  }
 `;
 
 export const Header: CFC = () => {
@@ -22,8 +40,14 @@ export const Header: CFC = () => {
 
   return (
     <Row className={main}>
-      <Link className={link}>{capitalize(t('home'))}</Link>
-      <Link className={link}>{capitalize(t('articles'))}</Link>
+      <Row className={bem({[segment]: {start: true}})}></Row>
+      <Row className={bem({[segment]: {center: true}})}>
+        <Link className={link}>{capitalize(t('home'))}</Link>
+        <Link className={link}>{capitalize(t('articles'))}</Link>
+      </Row>
+      <Row className={bem({[segment]: {end: true}})}>
+        <BuildButton />
+      </Row>
     </Row>
   );
 };

@@ -1,6 +1,6 @@
 import cn from 'classnames';
 
-type BemElement = Record<string, Record<string, string>>;
+type BemElement = Record<string, Record<string, string | boolean>>;
 
 type Bem = BemElement | string | undefined;
 

@@ -6,7 +6,7 @@ import {Col} from './Col';
 
 const content = css`
   flex: 1 0 auto;
-  background-color: ${color('major')};
+  background-color: ${color('majorShade')};
 `;
 
 export const Page: CFC = ({children}) => {
