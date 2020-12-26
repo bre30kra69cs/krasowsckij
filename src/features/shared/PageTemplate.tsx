@@ -1,7 +1,7 @@
 import {useState, useCallback} from 'react';
 import {CFC} from '../../types/react';
 import {Page} from '../../ui/Page';
-import {Modal} from '../../ui/Modal';
+import {MenuModal} from './MenuModal';
 
 export const PageTemplate: CFC = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -17,7 +17,7 @@ export const PageTemplate: CFC = () => {
   return (
     <>
       <Page onMenu={onMenu} />
-      {isOpen && <Modal onClose={onCloseMenu} isShadowBack />}
+      {isOpen && <MenuModal onClose={onCloseMenu} />}
     </>
   );
 };

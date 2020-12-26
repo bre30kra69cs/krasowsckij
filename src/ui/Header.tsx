@@ -5,7 +5,7 @@ import {color} from '../theme/palette';
 import {useInter} from '../inter';
 import {capitalize} from '../utils/string';
 import {Row} from './Row';
-import {Link} from './Link';
+import {InternalLink} from './InternalLink';
 import {BuildButton} from './BuildButton';
 import {bem} from '../bem';
 
@@ -46,8 +46,8 @@ export const Header: CFC<Props> = ({className, onMenu}) => {
     <Row className={bem(main, className)}>
       <Row className={bem({[segment]: {start: true}})}></Row>
       <Row className={bem({[segment]: {center: true}})}>
-        <Link className={link}>{capitalize(t('home'))}</Link>
-        <Link className={link}>{capitalize(t('articles'))}</Link>
+        <InternalLink className={link}>{capitalize(t('home'))}</InternalLink>
+        <InternalLink className={link}>{capitalize(t('articles'))}</InternalLink>
       </Row>
       <Row className={bem({[segment]: {end: true}})}>
         <BuildButton onClick={onMenu} />

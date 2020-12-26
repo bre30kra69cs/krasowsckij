@@ -12,12 +12,10 @@ const main = css`
   top: 0;
   bottom: 0;
   right: 0;
+  justify-content: center;
+  align-items: center;
   animation-name: mouting;
   animation-duration: 0.2s;
-
-  &__shadow-back {
-    background-color: ${palette('black', 0.5)};
-  }
 
   @keyframes mouting {
     from {
@@ -29,7 +27,19 @@ const main = css`
   }
 `;
 
-type Props = {
+const back = css`
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+
+  &__shadow-back {
+    background-color: ${palette('black', 0.5)};
+  }
+`;
+
+export type Props = {
   isShadowBack?: boolean;
   onClose?: () => void;
 };
@@ -38,7 +48,8 @@ export const Modal: CFC<Props> = ({children, className, isShadowBack, onClose = 
   useEscape(onClose);
 
   return (
-    <Col className={bem({[main]: {'shadow-back': isShadowBack}}, className)} onClick={onClose}>
+    <Col className={bem(main, className)}>
+      <Col className={bem({[back]: {'shadow-back': isShadowBack}})} onClick={onClose} />
       {children}
     </Col>
   );

@@ -1,10 +1,12 @@
 {
   "ru": {
     "home": "домой",
-    "articles": "статьи"
+    "articles": "статьи",
+    "theme": "тема"
   },
   "en": {
     "home": "home",
-    "articles": "articles"
+    "articles": "articles",
+    "theme": "theme"
   }
 }

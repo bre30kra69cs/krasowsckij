@@ -9,9 +9,20 @@ const main = css`
   font-style: normal;
   font-weight: bold;
   font-size: ${unit(3, px)};
-  color: ${color('minor')};
+
+  &__major {
+    color: ${color('majorDark')};
+  }
+
+  &__minor {
+    color: ${color('minorDark')};
+  }
 `;
 
-export const Title: CFC = ({children, className}) => {
-  return <p className={bem(main, className)}>{children}</p>;
+export interface Props {
+  type?: 'major' | 'minor';
+}
+
+export const Title: CFC<Props> = ({children, className, type = 'major'}) => {
+  return <p className={bem({[main]: {[type]: true}}, className)}>{children}</p>;
 };

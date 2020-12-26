@@ -38,7 +38,7 @@ interface Props {
   href?: keyof Routes;
 }
 
-export const Link: CFC<Props> = ({children, className, href = route('home')}) => {
+export const InternalLink: CFC<Props> = ({children, className, href = route('home')}) => {
   return (
     <NextLink href={href}>
       <a className={bem(main, className)}>{children}</a>
