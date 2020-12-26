@@ -1,6 +1,6 @@
 import {createContext, useContext, useMemo, useState} from 'react';
 import {CFC} from '../types/react';
-import dict from '../../i18n/dict.json';
+import dict from '../../dicts/dict.json';
 
 type Lang = 'ru' | 'en';
 

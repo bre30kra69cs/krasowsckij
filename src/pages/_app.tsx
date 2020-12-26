@@ -1,8 +1,8 @@
 import {AppProps} from 'next/app';
-import {CFC} from '@app/types';
-import {Layout} from '@app/ui';
-import {InterProvider} from '@app/inter';
-import {ThemeProvider} from '@app/theme';
+import {CFC} from '../types/react';
+import {Layout} from '../ui/Layout';
+import {InterProvider} from '../inter';
+import {ThemeProvider} from '../theme/theme';
 
 import '../../styles/reset.css';
 import '../../styles/global.css';

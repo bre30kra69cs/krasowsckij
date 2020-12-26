@@ -1,6 +1,6 @@
 import {css} from '@linaria/core';
-import {CFC} from '@app/types';
-import {bem} from '@app/bem';
+import {CFC} from '../types/react';
+import {bem} from '../bem';
 
 const main = css`
   position: relative;

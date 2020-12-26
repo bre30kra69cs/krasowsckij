@@ -1,7 +1,8 @@
 import {useMemo, CSSProperties} from 'react';
 import {css} from '@linaria/core';
-import {CFC} from '@app/types';
-import {Theme, useTheme} from '@app/theme';
+import {CFC} from '../types/react';
+import {useTheme} from '../theme/theme';
+import {Theme} from '../theme/palette';
 
 const main = css`
   display: flex;

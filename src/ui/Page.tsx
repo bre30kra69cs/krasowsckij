@@ -1,6 +1,6 @@
 import {css} from '@linaria/core';
-import {CFC} from '@app/types';
-import {color} from '@app/theme';
+import {CFC} from '../types/react';
+import {color} from '../theme/palette';
 import {Header} from './Header';
 import {Col} from './Col';
 

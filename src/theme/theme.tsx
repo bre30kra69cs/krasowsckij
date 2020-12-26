@@ -1,6 +1,6 @@
-import {CFC} from '@app/types';
 import {createContext, useContext, useMemo, useState} from 'react';
 import {THEME_DARK, THEME_LIGHT, Theme} from './palette';
+import {CFC} from '../types/react';
 
 type ThemeName = 'light' | 'dark';
 

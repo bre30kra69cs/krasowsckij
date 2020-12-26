@@ -1,9 +1,10 @@
 import NextLink from 'next/link';
 import {css} from '@linaria/core';
-import {CFC} from '@app/types';
-import {unit, px, color} from '@app/theme';
-import {Routes, route} from '@app/routes';
-import {bem} from '@app/bem';
+import {CFC} from '../types/react';
+import {unit, px} from '../theme/units';
+import {color} from '../theme/palette';
+import {Routes, route} from '../routes';
+import {bem} from '../bem';
 
 const main = css`
   display: flex;
