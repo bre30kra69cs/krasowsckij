@@ -1,9 +1,11 @@
-export const ROUTES = {
+export interface Routes {
+  home: string;
+}
+
+export const ROUTES: Routes = {
   home: '/'
 };
 
-export type Routes = keyof typeof ROUTES;
-
-export const route = (key: Routes) => {
+export const route = (key: keyof Routes) => {
   return ROUTES[key] || ROUTES.home;
 };

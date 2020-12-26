@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "baseUrl": "./src",
     "target": "ESNext",
     "lib": ["ESNext", "DOM"],
     "esModuleInterop": true,
@@ -12,7 +13,19 @@
     "strict": true,
     "forceConsistentCasingInFileNames": true,
     "resolveJsonModule": true,
-    "isolatedModules": true
+    "isolatedModules": true,
+    "paths": {
+      "@app/utils": ["utils"],
+      "@app/ui": ["ui"],
+      "@app/types": ["types"],
+      "@app/routes": ["routes"],
+      "@app/pages": ["pages"],
+      "@app/logger": ["logger"],
+      "@app/inter": ["inter"],
+      "@app/features": ["features"],
+      "@app/theme": ["theme"],
+      "@app/bem": ["bem"]
+    }
   },
   "include": ["src"],
   "exclude": ["node_modules"]

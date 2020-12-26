@@ -1,8 +1,4 @@
-export const capitalize = (value?: string) => {
-  if (!value) {
-    return value ?? undefined;
-  }
-
+export const capitalize = (value: string) => {
   const [head, ...rest] = value;
   return [head.toUpperCase(), ...rest].join('');
 };

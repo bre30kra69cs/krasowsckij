@@ -1,12 +1,12 @@
 import {css} from '@linaria/core';
-import {CFC} from '../types/react';
-import {Col} from './Col';
+import {CFC} from '@app/types';
+import {color} from '@app/theme';
 import {Header} from './Header';
-import {color} from '../design';
+import {Col} from './Col';
 
 const content = css`
   flex: 1 0 auto;
-  background-color: ${color('gray')};
+  background-color: ${color('major')};
 `;
 
 export const Page: CFC = ({children}) => {

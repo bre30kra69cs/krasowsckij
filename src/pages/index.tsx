@@ -1,5 +1,5 @@
 import {CFC} from '../types/react';
-import {HomePage} from '../features/HomePage';
+import {HomePage} from '@app/features';
 
 const Home: CFC = () => {
   return <HomePage />;

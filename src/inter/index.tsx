@@ -6,13 +6,13 @@ type Lang = 'ru' | 'en';
 
 type Dict = Record<Lang, Record<string, string>>;
 
-interface Inter {
+interface InterContext {
   lng: Lang;
   setLng: (lng: Lang) => void;
   t: (key: string) => string;
 }
 
-const interContext = createContext<Inter>({
+export const interContext = createContext<InterContext>({
   lng: 'ru',
   setLng: () => undefined,
   t: () => ''
@@ -27,7 +27,7 @@ const FALLBACK = 'no_inter';
 export const InterProvider: CFC<Props> = ({children, lng = 'ru'}) => {
   const [lngValue, setLng] = useState(lng);
 
-  const value = useMemo((): Inter => {
+  const value = useMemo((): InterContext => {
     return {
       lng: lngValue,
       t: (key) => {
