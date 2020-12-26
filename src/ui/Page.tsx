@@ -1,7 +1,7 @@
 import {css} from '@linaria/core';
 import {CFC} from '../types/react';
 import {color} from '../theme/palette';
-import {Header} from './Header';
+import {Header, Props as HeaderProps} from './Header';
 import {Col} from './Col';
 
 const content = css`
@@ -9,10 +9,12 @@ const content = css`
   background-color: ${color('majorShade')};
 `;
 
-export const Page: CFC = ({children}) => {
+type Props = HeaderProps;
+
+export const Page: CFC<Props> = ({children, onMenu}) => {
   return (
     <>
-      <Header />
+      <Header onMenu={onMenu} />
       <Col className={content}>{children}</Col>
     </>
   );

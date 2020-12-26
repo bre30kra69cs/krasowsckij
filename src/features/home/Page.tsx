@@ -1,6 +1,6 @@
 import {CFC} from '../../types/react';
-import {Page} from '../../ui/Page';
+import {PageTemplate} from '../shared/PageTemplate';
 
 export const HomePage: CFC = () => {
-  return <Page />;
+  return <PageTemplate />;
 };

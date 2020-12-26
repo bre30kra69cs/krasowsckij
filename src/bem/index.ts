@@ -1,14 +1,14 @@
 import cn from 'classnames';
 
-type BemElement = Record<string, Record<string, string | boolean>>;
+type BemElement = Record<string, Record<string, string | boolean | undefined>>;
 
 type Bem = BemElement | string | undefined;
 
-const element = (name?: BemElement) => {
-  if (name) {
-    return Object.keys(name).map((key) => {
-      const mods = Object.keys(name[key])
-        .filter(Boolean)
+const element = (value?: BemElement) => {
+  if (value) {
+    return Object.keys(value).map((key) => {
+      const mods = Object.keys(value[key])
+        .filter((modKey) => !!value[key][modKey])
         .map((mod) => `${key}__${mod}`);
 
       return [key, ...mods];
@@ -18,9 +18,9 @@ const element = (name?: BemElement) => {
   return '';
 };
 
-export const bem = (...names: Bem[]) => {
-  const classNames = names.map((name) => {
-    return typeof name === 'string' ? name : element(name);
+export const bem = (...values: Bem[]) => {
+  const classNames = values.map((value) => {
+    return typeof value === 'string' ? value : element(value);
   });
 
   return cn(...classNames);

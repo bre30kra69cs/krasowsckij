@@ -35,18 +35,22 @@ const segment = css`
   }
 `;
 
-export const Header: CFC = () => {
+export interface Props {
+  onMenu?: () => void;
+}
+
+export const Header: CFC<Props> = ({className, onMenu}) => {
   const {t} = useInter();
 
   return (
-    <Row className={main}>
+    <Row className={bem(main, className)}>
       <Row className={bem({[segment]: {start: true}})}></Row>
       <Row className={bem({[segment]: {center: true}})}>
         <Link className={link}>{capitalize(t('home'))}</Link>
         <Link className={link}>{capitalize(t('articles'))}</Link>
       </Row>
       <Row className={bem({[segment]: {end: true}})}>
-        <BuildButton />
+        <BuildButton onClick={onMenu} />
       </Row>
     </Row>
   );

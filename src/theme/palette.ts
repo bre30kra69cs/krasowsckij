@@ -67,6 +67,23 @@ export const THEME_DARK: Theme = {
   warning: PALETTE.yellow
 };
 
+const parseColor = (color: string) => {
+  const value = color.substr(1);
+  const rh = value.substr(0, 2);
+  const gh = value.substr(2, 2);
+  const bh = value.substr(4, 2);
+  const r = parseInt(rh, 16);
+  const g = parseInt(gh, 16);
+  const b = parseInt(bh, 16);
+  return [r, g, b];
+};
+
 export const color = (key: keyof Theme) => {
   return `var(--${key})`;
+};
+
+export const palette = (key: keyof typeof PALETTE, opacity = 1) => {
+  const [r, g, b] = parseColor(PALETTE[key]);
+  console.log(parseColor(PALETTE[key]));
+  return `rgba(${r}, ${g}, ${b}, ${opacity})`;
 };
