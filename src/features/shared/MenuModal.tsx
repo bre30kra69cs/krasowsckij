@@ -7,9 +7,11 @@ import {Title} from '../../ui/Title';
 import {ToggleTheme} from '../../ui//ToggleTheme';
 import {ToggleLng} from '../../ui/ToggleLng';
 import {ColLine} from '../../ui//ColLine';
-import {useInter, Lang, DEFAULT_LNG, LNG_VALUES} from '../../inter';
+import {useInter, DEFAULT_LNG, LNG_VALUES} from '../../inter';
 import {capitalize} from '../../utils/string';
-import {useTheme, ThemeName, DEFAULT_THEME, THEME_VALUES} from '../../theme/theme';
+import {useTheme, DEFAULT_THEME, THEME_VALUES} from '../../theme/theme';
+import {ThemeName} from '../../types/theme';
+import {Lang} from '../../types/inter';
 
 const MAP_LNG: Record<Lang, Lang> = {
   [LNG_VALUES['EN']]: LNG_VALUES['RU'],
@@ -46,11 +48,11 @@ export const MenuModal: CFC<Props> = ({onClose}) => {
         <ColLine>
           <CardLine>
             <Title>{capitalize(t('theme'))}</Title>
-            <ToggleTheme onToggle={toggleTheme} />
+            <ToggleTheme onToggle={toggleTheme} toggled={themeName === 'light'} />
           </CardLine>
           <CardLine>
             <Title>{capitalize(t('language'))}</Title>
-            <ToggleLng onToggle={toggleLng} />
+            <ToggleLng onToggle={toggleLng} toggled={lng === 'en'} />
           </CardLine>
         </ColLine>
       </ModalContent>

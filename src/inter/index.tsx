@@ -1,9 +1,10 @@
-import {createContext, useContext, useMemo, useState} from 'react';
+import {useRouter} from 'next/router';
+import {createContext, useContext, useMemo} from 'react';
 import {CFC} from '../types/react';
+import {Lang} from '../types/inter';
 import {ValuesMap} from '../types/values';
+import {useQuery} from '../hooks/use-query';
 import dict from '../../dicts/dict.json';
-
-export type Lang = 'ru' | 'en';
 
 type Dict = Record<Lang, Record<string, string>>;
 
@@ -32,22 +33,24 @@ interface Props {
   lng?: Lang;
 }
 
-const FALLBACK = 'no_inter';
+const FALLBACK = 'NO_INTER';
 
-export const InterProvider: CFC<Props> = ({children, lng = DEFAULT_LNG}) => {
-  const [lngValue, setLng] = useState(lng);
+export const InterProvider: CFC<Props> = ({children}) => {
+  const {theme, lng} = useQuery();
+
+  const router = useRouter();
 
   const value = useMemo((): InterContext => {
     return {
-      lng: lngValue,
+      lng,
       t: (key) => {
-        return DICT?.[lngValue]?.[key] || key || FALLBACK;
+        return DICT?.[lng]?.[key] || key || FALLBACK;
       },
       setLng: (nextLng) => {
-        return setLng(nextLng);
+        router.push(`/${nextLng}/${theme}`);
       }
     };
-  }, [lngValue]);
+  }, [lng, theme, router]);
 
   return <interContext.Provider value={value}>{children}</interContext.Provider>;
 };

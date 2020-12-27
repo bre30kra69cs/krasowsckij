@@ -78,19 +78,19 @@ const checkbox = css`
 `;
 
 export interface Props {
-  checked?: boolean;
+  toggled?: boolean;
   type?: 'minor' | 'major';
   onToggle?: () => void;
 }
 
-export const ToggleLng: CFC<Props> = ({className, type = 'major', checked, onToggle}) => {
+export const ToggleLng: CFC<Props> = ({className, type = 'major', toggled, onToggle}) => {
   return (
     <label className={bem(main, className)}>
       <input
         className={bem({[checkbox]: {[type]: true}})}
         type="checkbox"
-        checked={checked}
-        onClick={onToggle}
+        defaultChecked={toggled}
+        onChangeCapture={onToggle}
       />
       <span className={bem({[slider]: {[type]: true}})} />
     </label>

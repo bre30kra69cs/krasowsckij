@@ -93,6 +93,5 @@ export const color = (key: keyof Theme) => {
 
 export const palette = (key: keyof typeof PALETTE, opacity = 1) => {
   const [r, g, b] = parseColor(PALETTE[key]);
-  console.log(parseColor(PALETTE[key]));
   return `rgba(${r}, ${g}, ${b}, ${opacity})`;
 };

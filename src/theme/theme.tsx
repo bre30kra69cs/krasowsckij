@@ -1,9 +1,10 @@
-import {createContext, useContext, useMemo, useState} from 'react';
+import {useRouter} from 'next/router';
+import {createContext, useContext, useMemo} from 'react';
 import {THEME_DARK, THEME_LIGHT, Theme} from './palette';
 import {CFC} from '../types/react';
+import {ThemeName} from '../types/theme';
 import {ValuesMap} from '../types/values';
-
-export type ThemeName = 'light' | 'dark';
+import {useQuery} from '../hooks/use-query';
 
 export const THEME_VALUES: ValuesMap<ThemeName> = {
   LIGHT: 'light',
@@ -33,20 +34,22 @@ const THEME_MAP: Record<ThemeName, Theme> = {
   light: THEME_LIGHT
 };
 
-export const ThemeProvider: CFC<Props> = ({children, theme = DEFAULT_THEME}) => {
-  const [currentTheme, setTheme] = useState(theme);
+export const ThemeProvider: CFC<Props> = ({children}) => {
+  const {theme: themeName, lng} = useQuery();
+
+  const router = useRouter();
 
   const value = useMemo((): ThemeContext => {
-    const nextTheme = THEME_MAP[currentTheme] || THEME_MAP[DEFAULT_THEME];
+    const theme = THEME_MAP[themeName] || THEME_MAP[DEFAULT_THEME];
 
     return {
-      themeName: currentTheme,
-      theme: nextTheme,
+      themeName,
+      theme,
       setTheme: (nextTheme) => {
-        setTheme(nextTheme);
+        router.push(`/${lng}/${nextTheme}`);
       }
     };
-  }, [currentTheme]);
+  }, [themeName, lng, router]);
 
   return <themeContext.Provider value={value}>{children}</themeContext.Provider>;
 };
