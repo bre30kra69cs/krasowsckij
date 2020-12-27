@@ -1,3 +1,4 @@
+import {useCallback} from 'react';
 import {CFC} from '../../types/react';
 import {Modal} from '../../ui/Modal';
 import {ModalContent} from '../../ui/ModalContent';
@@ -5,14 +6,24 @@ import {CardLine} from '../../ui/CardLine';
 import {Title} from '../../ui/Title';
 import {Toggle} from '../../ui//Toggle';
 import {ColLine} from '../../ui//ColLine';
-import {useInter} from '../../inter';
+import {useInter, Lang} from '../../inter';
+
+const MAP_LNG: Record<Lang, Lang> = {
+  en: 'ru',
+  ru: 'en'
+};
 
 export interface Props {
   onClose?: () => void;
 }
 
 export const MenuModal: CFC<Props> = ({onClose}) => {
-  const {t} = useInter();
+  const {lng, t, setLng} = useInter();
+
+  const toggleLng = useCallback(() => {
+    const nextLng = MAP_LNG[lng] || 'ru';
+    setLng(nextLng);
+  }, [lng, setLng]);
 
   return (
     <Modal onClose={onClose} isShadowBack>
@@ -23,8 +34,8 @@ export const MenuModal: CFC<Props> = ({onClose}) => {
             <Toggle />
           </CardLine>
           <CardLine>
-            <Title>en/ру</Title>
-            <Toggle />
+            <Title>{t('language')}</Title>
+            <Toggle onToggle={toggleLng} />
           </CardLine>
         </ColLine>
       </ModalContent>

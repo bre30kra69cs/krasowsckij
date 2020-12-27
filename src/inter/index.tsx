@@ -2,7 +2,7 @@ import {createContext, useContext, useMemo, useState} from 'react';
 import {CFC} from '../types/react';
 import dict from '../../dicts/dict.json';
 
-type Lang = 'ru' | 'en';
+export type Lang = 'ru' | 'en';
 
 type Dict = Record<Lang, Record<string, string>>;
 

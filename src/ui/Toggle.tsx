@@ -1,67 +1,96 @@
 import {css} from '@linaria/core';
 import {CFC} from '../types/react';
 import {bem} from '../bem';
+import {unit, px} from '../theme/units';
+import {color} from '../theme/palette';
 
 const main = css`
   position: relative;
-  display: inline-block;
-  width: 60px;
-  height: 34px;
-
-  & input {
-    opacity: 0;
-    width: 0;
-    height: 0;
-  }
+  width: ${unit(7, px)};
+  height: ${unit(4, px)};
 `;
 
 const slider = css`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
   position: absolute;
   cursor: pointer;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: #ccc;
-  -webkit-transition: 0.4s;
+  border-radius: ${unit(2, px)};
+  padding: ${unit(0.5, px)};
   transition: 0.4s;
-  border-radius: 34px;
 
   &:before {
-    position: absolute;
     content: '';
-    height: 26px;
-    width: 26px;
-    left: 4px;
-    bottom: 4px;
-    background-color: white;
-    -webkit-transition: 0.4s;
+    position: absolute;
+    width: ${unit(3, px)};
+    height: ${unit(3, px)};
+    border-radius: ${unit(1.5, px)};
     transition: 0.4s;
-    border-radius: 50%;
+  }
+
+  &__major {
+    background-color: ${color('majorLight')};
+
+    &:before {
+      background-color: ${color('major')};
+    }
+  }
+
+  &__minor {
+    background-color: ${color('minorLight')};
+
+    &:before {
+      background-color: ${color('minor')};
+    }
   }
 `;
 
 const checkbox = css`
-  &:checked + ${slider} {
-    background-color: #2196f3;
+  opacity: 0;
+  width: 0;
+  height: 0;
+
+  &__major:checked + ${`.${slider}:before`} {
+    background-color: ${color('minorShade')};
+    transform: translateX(${unit(3, px)});
   }
 
-  &:focus + ${slider} {
-    box-shadow: 0 0 1px #2196f3;
+  &__minor:checked + ${`.${slider}:before`} {
+    background-color: ${color('majorShade')};
+    transform: translateX(${unit(3, px)});
   }
 
-  &:checked + ${slider}:before {
-    -webkit-transform: translateX(26px);
-    -ms-transform: translateX(26px);
-    transform: translateX(26px);
+  &__major:checked + .${slider} {
+    background-color: ${color('decoreShade')};
+  }
+
+  &__minor:checked + .${slider} {
+    background-color: ${color('decoreShade')};
   }
 `;
 
-export const Toggle: CFC = ({className}) => {
+export interface Props {
+  checked?: boolean;
+  type?: 'minor' | 'major';
+  onToggle?: () => void;
+}
+
+export const Toggle: CFC<Props> = ({className, type = 'major', checked, onToggle}) => {
   return (
     <label className={bem(main, className)}>
-      <input type={checkbox} />
-      <span className={slider}></span>
+      <input
+        className={bem({[checkbox]: {[type]: true}})}
+        type="checkbox"
+        checked={checked}
+        onClick={onToggle}
+      />
+      <span className={bem({[slider]: {[type]: true}})} />
     </label>
   );
 };

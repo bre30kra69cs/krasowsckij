@@ -2,11 +2,13 @@
   "ru": {
     "home": "домой",
     "articles": "статьи",
-    "theme": "тема"
+    "theme": "тема",
+    "language": "язык"
   },
   "en": {
     "home": "home",
     "articles": "articles",
-    "theme": "theme"
+    "theme": "theme",
+    "language": "language"
   }
 }

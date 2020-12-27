@@ -41,7 +41,7 @@ export const THEME_LIGHT: Theme = {
   minor: PALETTE.white,
   minorLight: PALETTE.whiteLight,
   minorShade: PALETTE.whiteShade,
-  minorDark: PALETTE.grayDark,
+  minorDark: PALETTE.whiteDark,
   decore: PALETTE.pink,
   decoreLight: PALETTE.pinkLight,
   decoreShade: PALETTE.pinkShade,
