@@ -1,7 +1,6 @@
 const withCSS = require('@zeit/next-css');
 
 module.exports = withCSS({
-  baseUrl: '/ru/dark',
   webpack(config) {
     config.module.rules.push({
       test: /\.tsx$/,
@@ -16,5 +15,14 @@ module.exports = withCSS({
     });
 
     return config;
+  },
+  async redirects() {
+    return [
+      {
+        source: '/',
+        destination: '/ru/dark/home',
+        permanent: true
+      }
+    ];
   }
 });

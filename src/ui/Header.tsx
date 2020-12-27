@@ -8,6 +8,7 @@ import {Row} from './Row';
 import {InternalLink} from './InternalLink';
 import {BuildButton} from './BuildButton';
 import {bem} from '../bem';
+import {useRoute} from '../hooks/use-route';
 
 const main = css`
   justify-content: center;
@@ -42,12 +43,18 @@ export interface Props {
 export const Header: CFC<Props> = ({className, onMenu}) => {
   const {t} = useInter();
 
+  const route = useRoute();
+
   return (
     <Row className={bem(main, className)}>
       <Row className={bem({[segment]: {start: true}})}></Row>
       <Row className={bem({[segment]: {center: true}})}>
-        <InternalLink className={link}>{capitalize(t('home'))}</InternalLink>
-        <InternalLink className={link}>{capitalize(t('articles'))}</InternalLink>
+        <InternalLink href={route('home')} className={link}>
+          {capitalize(t('home'))}
+        </InternalLink>
+        <InternalLink href={route('articles')} className={link}>
+          {capitalize(t('articles'))}
+        </InternalLink>
       </Row>
       <Row className={bem({[segment]: {end: true}})}>
         <BuildButton onClick={onMenu} />
