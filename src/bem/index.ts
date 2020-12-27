@@ -2,7 +2,7 @@ import cn from 'classnames';
 
 type BemElement = Record<string, Record<string, string | boolean | undefined>>;
 
-type Bem = BemElement | string | undefined;
+type Bem = BemElement | string | boolean | undefined;
 
 const element = (value?: BemElement) => {
   if (value) {
@@ -20,7 +20,7 @@ const element = (value?: BemElement) => {
 
 export const bem = (...values: Bem[]) => {
   const classNames = values.map((value) => {
-    return typeof value === 'string' ? value : element(value);
+    return typeof value === 'string' ? value : typeof value === 'boolean' ? '' : element(value);
   });
 
   return cn(...classNames);

@@ -4,13 +4,21 @@ import {Modal} from '../../ui/Modal';
 import {ModalContent} from '../../ui/ModalContent';
 import {CardLine} from '../../ui/CardLine';
 import {Title} from '../../ui/Title';
-import {Toggle} from '../../ui//Toggle';
+import {ToggleTheme} from '../../ui//ToggleTheme';
+import {ToggleLng} from '../../ui/ToggleLng';
 import {ColLine} from '../../ui//ColLine';
 import {useInter, Lang} from '../../inter';
+import {capitalize} from '../../utils/string';
+import {useTheme, ThemeName, DEFAULT_THEME} from '../../theme/theme';
 
 const MAP_LNG: Record<Lang, Lang> = {
   en: 'ru',
   ru: 'en'
+};
+
+const MAP_THEME: Record<ThemeName, ThemeName> = {
+  light: 'dark',
+  dark: 'light'
 };
 
 export interface Props {
@@ -19,6 +27,13 @@ export interface Props {
 
 export const MenuModal: CFC<Props> = ({onClose}) => {
   const {lng, t, setLng} = useInter();
+
+  const {name: theme, setTheme} = useTheme();
+
+  const toggleTheme = useCallback(() => {
+    const nextTheme = MAP_THEME[theme] || DEFAULT_THEME;
+    setTheme(nextTheme);
+  }, [theme, setTheme]);
 
   const toggleLng = useCallback(() => {
     const nextLng = MAP_LNG[lng] || 'ru';
@@ -30,12 +45,12 @@ export const MenuModal: CFC<Props> = ({onClose}) => {
       <ModalContent isClose onClose={onClose}>
         <ColLine>
           <CardLine>
-            <Title>{t('theme')}</Title>
-            <Toggle />
+            <Title>{capitalize(t('theme'))}</Title>
+            <ToggleTheme onToggle={toggleTheme} />
           </CardLine>
           <CardLine>
-            <Title>{t('language')}</Title>
-            <Toggle onToggle={toggleLng} />
+            <Title>{capitalize(t('language'))}</Title>
+            <ToggleLng onToggle={toggleLng} />
           </CardLine>
         </ColLine>
       </ModalContent>

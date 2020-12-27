@@ -26,7 +26,7 @@ const slider = css`
   transition: 0.4s;
 
   &:before {
-    content: '';
+    content: url(/moon.svg);
     position: absolute;
     width: ${unit(3, px)};
     height: ${unit(3, px)};
@@ -36,18 +36,10 @@ const slider = css`
 
   &__major {
     background-color: ${color('majorLight')};
-
-    &:before {
-      background-color: ${color('major')};
-    }
   }
 
   &__minor {
     background-color: ${color('minorLight')};
-
-    &:before {
-      background-color: ${color('minor')};
-    }
   }
 `;
 
@@ -57,12 +49,12 @@ const checkbox = css`
   height: 0;
 
   &__major:checked + ${`.${slider}:before`} {
-    background-color: ${color('minorShade')};
+    content: url(/sun.svg);
     transform: translateX(${unit(3, px)});
   }
 
   &__minor:checked + ${`.${slider}:before`} {
-    background-color: ${color('majorShade')};
+    content: url(/sun.svg);
     transform: translateX(${unit(3, px)});
   }
 
@@ -81,7 +73,7 @@ export interface Props {
   onToggle?: () => void;
 }
 
-export const Toggle: CFC<Props> = ({className, type = 'major', checked, onToggle}) => {
+export const ToggleTheme: CFC<Props> = ({className, type = 'major', checked, onToggle}) => {
   return (
     <label className={bem(main, className)}>
       <input

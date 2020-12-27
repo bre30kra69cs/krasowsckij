@@ -1,6 +1,6 @@
 import {AppProps} from 'next/app';
 import {CFC} from '../types/react';
-import {Layout} from '../ui/Layout';
+import {Layout} from '../features/shared/Layout';
 import {InterProvider} from '../inter';
 import {ThemeProvider} from '../theme/theme';
 

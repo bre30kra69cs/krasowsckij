@@ -33,7 +33,7 @@ export interface Theme {
   warning: string;
 }
 
-export const THEME_LIGHT: Theme = {
+export const THEME_DARK: Theme = {
   major: PALETTE.gray,
   majorLight: PALETTE.grayLight,
   majorShade: PALETTE.grayShade,
@@ -50,14 +50,14 @@ export const THEME_LIGHT: Theme = {
   warning: PALETTE.yellow
 };
 
-export const THEME_DARK: Theme = {
-  major: PALETTE.gray,
-  majorLight: PALETTE.grayLight,
-  majorShade: PALETTE.grayShade,
-  majorDark: PALETTE.grayDark,
-  minor: PALETTE.white,
-  minorLight: PALETTE.whiteLight,
-  minorShade: PALETTE.whiteShade,
+export const THEME_LIGHT: Theme = {
+  major: PALETTE.white,
+  majorLight: PALETTE.whiteLight,
+  majorShade: PALETTE.whiteShade,
+  majorDark: PALETTE.whiteDark,
+  minor: PALETTE.gray,
+  minorLight: PALETTE.grayLight,
+  minorShade: PALETTE.grayShade,
   minorDark: PALETTE.grayDark,
   decore: PALETTE.pink,
   decoreLight: PALETTE.pinkLight,

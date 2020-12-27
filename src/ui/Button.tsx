@@ -11,7 +11,7 @@ const main = css`
 `;
 
 export interface Props {
-  onClick?: (e?: MouseEvent) => void;
+  onClick?: (e: MouseEvent) => void;
 }
 
 export const Button: CFC<Props> = ({children, className, onClick}) => {

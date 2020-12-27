@@ -26,7 +26,7 @@ const slider = css`
   transition: 0.4s;
 
   &:before {
-    content: '';
+    content: url(/ru.svg);
     position: absolute;
     width: ${unit(3, px)};
     height: ${unit(3, px)};
@@ -57,11 +57,13 @@ const checkbox = css`
   height: 0;
 
   &__major:checked + ${`.${slider}:before`} {
+    content: url(/en.svg);
     background-color: ${color('minorShade')};
     transform: translateX(${unit(3, px)});
   }
 
   &__minor:checked + ${`.${slider}:before`} {
+    content: url(/en.svg);
     background-color: ${color('majorShade')};
     transform: translateX(${unit(3, px)});
   }
@@ -81,7 +83,7 @@ export interface Props {
   onToggle?: () => void;
 }
 
-export const Toggle: CFC<Props> = ({className, type = 'major', checked, onToggle}) => {
+export const ToggleLng: CFC<Props> = ({className, type = 'major', checked, onToggle}) => {
   return (
     <label className={bem(main, className)}>
       <input
