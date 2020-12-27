@@ -1,19 +1,25 @@
 import {createContext, useContext, useMemo, useState} from 'react';
 import {THEME_DARK, THEME_LIGHT, Theme} from './palette';
 import {CFC} from '../types/react';
+import {ValuesMap} from '../types/values';
 
 export type ThemeName = 'light' | 'dark';
 
-export const DEFAULT_THEME: ThemeName = 'dark';
+export const THEME_VALUES: ValuesMap<ThemeName> = {
+  LIGHT: 'light',
+  DARK: 'dark'
+};
+
+export const DEFAULT_THEME = THEME_VALUES['DARK'];
 
 interface ThemeContext {
-  name: ThemeName;
+  themeName: ThemeName;
   theme: Theme;
   setTheme(nextTheme: ThemeName): void;
 }
 
 const themeContext = createContext<ThemeContext>({
-  name: DEFAULT_THEME,
+  themeName: DEFAULT_THEME,
   theme: THEME_LIGHT,
   setTheme: () => undefined
 });
@@ -34,7 +40,7 @@ export const ThemeProvider: CFC<Props> = ({children, theme = DEFAULT_THEME}) => 
     const nextTheme = THEME_MAP[currentTheme] || THEME_MAP[DEFAULT_THEME];
 
     return {
-      name: currentTheme,
+      themeName: currentTheme,
       theme: nextTheme,
       setTheme: (nextTheme) => {
         setTheme(nextTheme);

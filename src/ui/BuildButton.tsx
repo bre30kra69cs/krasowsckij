@@ -7,7 +7,7 @@ import {unit, px} from '../theme/units';
 import {color} from '../theme/palette';
 
 const icon = css`
-  fill: ${color('minorLight')};
+  fill: ${color('minor')};
 `;
 
 const main = css`
@@ -23,8 +23,8 @@ const main = css`
   }
 
   &:hover .${icon} {
-    fill: ${color('decore')};
     animation-name: hovering;
+    animation-fill-mode: forwards;
     animation-duration: 0.4s;
   }
 `;

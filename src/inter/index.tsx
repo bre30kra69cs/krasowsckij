@@ -1,10 +1,20 @@
 import {createContext, useContext, useMemo, useState} from 'react';
 import {CFC} from '../types/react';
+import {ValuesMap} from '../types/values';
 import dict from '../../dicts/dict.json';
 
 export type Lang = 'ru' | 'en';
 
 type Dict = Record<Lang, Record<string, string>>;
+
+const DICT = dict as Dict;
+
+export const LNG_VALUES: ValuesMap<Lang> = {
+  RU: 'ru',
+  EN: 'en'
+};
+
+export const DEFAULT_LNG = LNG_VALUES['RU'];
 
 interface InterContext {
   lng: Lang;
@@ -13,7 +23,7 @@ interface InterContext {
 }
 
 export const interContext = createContext<InterContext>({
-  lng: 'ru',
+  lng: DEFAULT_LNG,
   setLng: () => undefined,
   t: () => ''
 });
@@ -24,14 +34,14 @@ interface Props {
 
 const FALLBACK = 'no_inter';
 
-export const InterProvider: CFC<Props> = ({children, lng = 'ru'}) => {
+export const InterProvider: CFC<Props> = ({children, lng = DEFAULT_LNG}) => {
   const [lngValue, setLng] = useState(lng);
 
   const value = useMemo((): InterContext => {
     return {
       lng: lngValue,
       t: (key) => {
-        return (dict as Dict)?.[lngValue]?.[key] || key || FALLBACK;
+        return DICT?.[lngValue]?.[key] || key || FALLBACK;
       },
       setLng: (nextLng) => {
         return setLng(nextLng);

@@ -7,18 +7,18 @@ import {Title} from '../../ui/Title';
 import {ToggleTheme} from '../../ui//ToggleTheme';
 import {ToggleLng} from '../../ui/ToggleLng';
 import {ColLine} from '../../ui//ColLine';
-import {useInter, Lang} from '../../inter';
+import {useInter, Lang, DEFAULT_LNG, LNG_VALUES} from '../../inter';
 import {capitalize} from '../../utils/string';
-import {useTheme, ThemeName, DEFAULT_THEME} from '../../theme/theme';
+import {useTheme, ThemeName, DEFAULT_THEME, THEME_VALUES} from '../../theme/theme';
 
 const MAP_LNG: Record<Lang, Lang> = {
-  en: 'ru',
-  ru: 'en'
+  [LNG_VALUES['EN']]: LNG_VALUES['RU'],
+  [LNG_VALUES['RU']]: LNG_VALUES['EN']
 };
 
 const MAP_THEME: Record<ThemeName, ThemeName> = {
-  light: 'dark',
-  dark: 'light'
+  [THEME_VALUES['LIGHT']]: THEME_VALUES['DARK'],
+  [THEME_VALUES['DARK']]: THEME_VALUES['LIGHT']
 };
 
 export interface Props {
@@ -28,15 +28,15 @@ export interface Props {
 export const MenuModal: CFC<Props> = ({onClose}) => {
   const {lng, t, setLng} = useInter();
 
-  const {name: theme, setTheme} = useTheme();
+  const {themeName, setTheme} = useTheme();
 
   const toggleTheme = useCallback(() => {
-    const nextTheme = MAP_THEME[theme] || DEFAULT_THEME;
+    const nextTheme = MAP_THEME[themeName] || DEFAULT_THEME;
     setTheme(nextTheme);
-  }, [theme, setTheme]);
+  }, [themeName, setTheme]);
 
   const toggleLng = useCallback(() => {
-    const nextLng = MAP_LNG[lng] || 'ru';
+    const nextLng = MAP_LNG[lng] || DEFAULT_LNG;
     setLng(nextLng);
   }, [lng, setLng]);
 

@@ -12,6 +12,15 @@ export const PALETTE = {
   pinkLight: '#dfdfff',
   pinkShade: '#a174c2',
   pinkDark: '#521180',
+  blue: '#4297c2',
+  blueLight: '#4fbaf0',
+  blueShade: '#377da1',
+  blueDark: '#2d6785',
+  red: '#b02f12',
+  redLight: '#db3a16',
+  redShade: '#8c250e',
+  redDark: '#661b0a',
+  // TODO: swap to hex
   tomato: 'tomato',
   yellow: 'yellow'
 };
@@ -54,15 +63,15 @@ export const THEME_LIGHT: Theme = {
   major: PALETTE.white,
   majorLight: PALETTE.whiteLight,
   majorShade: PALETTE.whiteShade,
-  majorDark: PALETTE.whiteDark,
-  minor: PALETTE.gray,
+  majorDark: PALETTE.grayLight,
+  minor: PALETTE.grayDark,
   minorLight: PALETTE.grayLight,
   minorShade: PALETTE.grayShade,
   minorDark: PALETTE.grayDark,
-  decore: PALETTE.pink,
-  decoreLight: PALETTE.pinkLight,
-  decoreShade: PALETTE.pinkShade,
-  decoreDark: PALETTE.pinkDark,
+  decore: PALETTE.red,
+  decoreLight: PALETTE.redLight,
+  decoreShade: PALETTE.redShade,
+  decoreDark: PALETTE.redDark,
   error: PALETTE.tomato,
   warning: PALETTE.yellow
 };
