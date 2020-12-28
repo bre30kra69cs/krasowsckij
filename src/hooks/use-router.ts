@@ -3,11 +3,6 @@ import {useCallback} from 'react';
 import {useRoute} from './use-route';
 import {Routes, Params} from '../types/routes';
 
-export const ROUTES: Routes = {
-  home: '',
-  articles: 'articles'
-};
-
 export const useRouter = () => {
   const router = useRouterNext();
 
