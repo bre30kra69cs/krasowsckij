@@ -8,7 +8,7 @@ export interface Params {
 
 export interface Routes {
   home: string;
-  articles: string;
+  about: string;
 }
 
 export type Route = `/${Lang}/${ThemeName}/${keyof Routes | ''}`;

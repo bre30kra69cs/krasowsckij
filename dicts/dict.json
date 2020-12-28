@@ -1,13 +1,13 @@
 {
   "ru": {
     "home": "домой",
-    "articles": "статьи",
+    "about": "обо мне",
     "theme": "тема",
     "language": "язык"
   },
   "en": {
     "home": "home",
-    "articles": "articles",
+    "about": "about me",
     "theme": "theme",
     "language": "language"
   }

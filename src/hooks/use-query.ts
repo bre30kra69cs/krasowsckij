@@ -4,6 +4,7 @@ import {Params} from '../types/routes';
 interface UseQuery {
   query: Params;
   route: string;
+  asPath: string;
 }
 
 export const useQuery = () => {
@@ -14,6 +15,7 @@ export const useQuery = () => {
       lng: router.query.lng,
       theme: router.query.theme
     },
-    route: router.route
+    route: router.route,
+    asPath: router.asPath
   } as UseQuery;
 };

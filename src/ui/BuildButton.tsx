@@ -13,19 +13,9 @@ const icon = css`
 const main = css`
   padding: 0 ${unit(3, px)};
 
-  @keyframes hovering {
-    from {
-      fill: ${color('minor')};
-    }
-    to {
-      fill: ${color('decore')};
-    }
-  }
-
   &:hover .${icon} {
-    animation-name: hovering;
-    animation-fill-mode: forwards;
-    animation-duration: 0.4s;
+    fill: ${color('decore')};
+    transition: 0.4s;
   }
 `;
 

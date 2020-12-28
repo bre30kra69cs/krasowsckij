@@ -18,19 +18,9 @@ const main = css`
   color: ${color('minor')};
   outline: none;
 
-  @keyframes hovering {
-    from {
-      color: ${color('minor')};
-    }
-    to {
-      color: ${color('decore')};
-    }
-  }
-
   &:hover {
     color: ${color('decore')};
-    animation-name: hovering;
-    animation-duration: 0.4s;
+    transition: 0.4s;
   }
 `;
 

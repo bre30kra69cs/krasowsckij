@@ -5,7 +5,7 @@ import {Params} from '../types/routes';
 
 export const ROUTES: Routes = {
   home: '',
-  articles: 'articles'
+  about: 'about'
 };
 
 export const useRoute = () => {
@@ -17,7 +17,9 @@ export const useRoute = () => {
       const splitted = route.split('/');
       const last = splitted[splitted.length - 1];
       const target = last[0] === '[' ? '' : last;
-      return `/${nextQuery.lng}/${nextQuery.theme}/${path ? ROUTES[path] : target}`;
+      return `/${nextQuery.lng}/${nextQuery.theme}${
+        path ? (ROUTES[path] ? `/${ROUTES[path]}` : '') : target ? `/${target}` : ''
+      }`;
     },
     [query]
   );

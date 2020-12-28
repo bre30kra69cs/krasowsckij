@@ -7,8 +7,46 @@ import {roboto, arialOblique, courierItalic} from '../cn/fonts';
 import {unit, px} from '../theme/units';
 import {color} from '../theme/palette';
 import {bem} from '../bem';
-import {ExternalLink} from './ExternalLink';
 import {GITHUB, LINLEDIN, EMAIL} from '../consts/links';
+
+// TODO: exclude link component
+const mainLink = css`
+  text-decoration: none;
+  outline: none;
+
+  @keyframes hovering {
+    from {
+    }
+    to {
+      color: ${color('decoreDark')};
+    }
+  }
+
+  &:hover {
+    color: ${color('decoreDark')};
+    animation-name: hovering;
+    animation-duration: 0.4s;
+  }
+`;
+
+interface Props {
+  href?: string;
+  onMouseOver?: () => void;
+  onMouseLeave?: () => void;
+}
+
+const ExternalLink: CFC<Props> = ({children, className, href = '', onMouseOver, onMouseLeave}) => {
+  return (
+    <a
+      className={bem(mainLink, className)}
+      href={href}
+      onMouseOver={onMouseOver}
+      onMouseLeave={onMouseLeave}
+    >
+      {children}
+    </a>
+  );
+};
 
 const web = css`
   font-size: ${unit(8.4, px)};

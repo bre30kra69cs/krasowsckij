@@ -1,6 +1,6 @@
 import {GetStaticPaths, GetStaticProps} from 'next';
 import {CFC} from '../../../types/react';
-import {ArticlesPage} from '../../../features/articles/Page';
+import {AboutPage} from '../../../features/about/Page';
 import {InterProvider, LNG_VALUES} from '../../../inter';
 import {ThemeProvider, THEME_VALUES} from '../../../theme/theme';
 import {Params} from '../../../types/routes';
@@ -52,16 +52,16 @@ interface Props {
   params: Params;
 }
 
-const Articles: CFC<Props> = () => {
+const About: CFC<Props> = () => {
   return (
     <InterProvider>
       <ThemeProvider>
         <Layout>
-          <ArticlesPage />
+          <AboutPage />
         </Layout>
       </ThemeProvider>
     </InterProvider>
   );
 };
 
-export default Articles;
+export default About;

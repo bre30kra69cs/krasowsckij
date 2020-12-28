@@ -9,6 +9,7 @@ import {InternalLink} from './InternalLink';
 import {BuildButton} from './BuildButton';
 import {bem} from '../bem';
 import {useRoute} from '../hooks/use-route';
+import {useQuery} from '../hooks/use-query';
 
 const main = css`
   justify-content: center;
@@ -18,6 +19,10 @@ const main = css`
 
 const link = css`
   padding: 0 ${unit(3, px)};
+
+  &__active {
+    color: ${color('decore')};
+  }
 `;
 
 const segment = css`
@@ -43,17 +48,26 @@ export interface Props {
 export const Header: CFC<Props> = ({className, onMenu}) => {
   const {t} = useInter();
 
+  const {asPath} = useQuery();
+
   const route = useRoute();
 
+  // TODO: create more smartest router hook
   return (
     <Row className={bem(main, className)}>
       <Row className={bem({[segment]: {start: true}})}></Row>
       <Row className={bem({[segment]: {center: true}})}>
-        <InternalLink href={route('home')} className={link}>
+        <InternalLink
+          href={route('home')}
+          className={bem({[link]: {active: asPath === route('home')}})}
+        >
           {capitalize(t('home'))}
         </InternalLink>
-        <InternalLink href={route('articles')} className={link}>
-          {capitalize(t('articles'))}
+        <InternalLink
+          href={route('about')}
+          className={bem({[link]: {active: asPath === route('about')}})}
+        >
+          {capitalize(t('about'))}
         </InternalLink>
       </Row>
       <Row className={bem({[segment]: {end: true}})}>
