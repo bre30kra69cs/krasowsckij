@@ -16,6 +16,7 @@ const main = css`
   font-size: ${unit(2, px)};
   text-decoration: none;
   color: ${color('minor')};
+  outline: none;
 
   @keyframes hovering {
     from {

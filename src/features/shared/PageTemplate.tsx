@@ -3,7 +3,7 @@ import {CFC} from '../../types/react';
 import {Page} from '../../ui/Page';
 import {MenuModal} from './MenuModal';
 
-export const PageTemplate: CFC = () => {
+export const PageTemplate: CFC = ({children, className}) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const onMenu = useCallback(() => {
@@ -16,7 +16,9 @@ export const PageTemplate: CFC = () => {
 
   return (
     <>
-      <Page onMenu={onMenu} />
+      <Page onMenu={onMenu} className={className}>
+        {children}
+      </Page>
       {isOpen && <MenuModal onClose={onCloseMenu} />}
     </>
   );

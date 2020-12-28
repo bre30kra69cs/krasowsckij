@@ -2,7 +2,7 @@ import {useMemo, CSSProperties} from 'react';
 import {CFC} from '../../types/react';
 import {useTheme} from '../../theme/theme';
 import {Theme} from '../../theme/palette';
-import {main} from '../../ui/Layout';
+import {layout} from '../../cn/layout';
 
 type Vars = CSSProperties &
   {
@@ -32,7 +32,7 @@ export const Layout: CFC = ({children}) => {
   }, [theme]);
 
   return (
-    <div className={main} style={style}>
+    <div className={layout} style={style}>
       {children}
     </div>
   );

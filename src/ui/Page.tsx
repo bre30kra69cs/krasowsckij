@@ -3,6 +3,7 @@ import {CFC} from '../types/react';
 import {color} from '../theme/palette';
 import {Header, Props as HeaderProps} from './Header';
 import {Col} from './Col';
+import {bem} from '../bem';
 
 const content = css`
   flex: 1 0 auto;
@@ -11,11 +12,11 @@ const content = css`
 
 type Props = HeaderProps;
 
-export const Page: CFC<Props> = ({children, onMenu}) => {
+export const Page: CFC<Props> = ({children, className, onMenu}) => {
   return (
     <>
       <Header onMenu={onMenu} />
-      <Col className={content}>{children}</Col>
+      <Col className={bem(content, className)}>{children}</Col>
     </>
   );
 };

@@ -1,6 +1,6 @@
 import {css} from '@linaria/core';
 
-export const main = css`
+export const layout = css`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
