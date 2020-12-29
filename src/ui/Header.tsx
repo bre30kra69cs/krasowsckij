@@ -8,15 +8,17 @@ import {Row} from './Row';
 import {InternalLink} from './InternalLink';
 import {BuildButton} from './BuildButton';
 import {bem} from '../bem';
+import {useQuery} from '../hooks/use-query';
+import {route} from '../hooks/use-router';
 
-export const HEIGHT = unit(6, px);
+export const HEIGHT = unit(6);
 
 const main = css`
   position: fixed;
   width: 100%;
   justify-content: center;
   background-color: ${color('majorDark')};
-  height: ${HEIGHT};
+  height: ${px(HEIGHT)};
 `;
 
 const link = css`
@@ -50,15 +52,16 @@ export interface Props {
 export const Header: CFC<Props> = ({className, onMenu}) => {
   const {t} = useInter();
 
-  // TODO: create more smartest router hook
+  const {route: path} = useQuery();
+
   return (
     <Row className={bem(main, className)}>
       <Row className={bem({[segment]: {start: true}})}></Row>
       <Row className={bem({[segment]: {center: true}})}>
-        <InternalLink path="home" className={link}>
+        <InternalLink path="home" className={bem({[link]: {active: path === route('home')}})}>
           {capitalize(t('home'))}
         </InternalLink>
-        <InternalLink path="about" className={link}>
+        <InternalLink path="about" className={bem({[link]: {active: path === route('about')}})}>
           {capitalize(t('about'))}
         </InternalLink>
       </Row>

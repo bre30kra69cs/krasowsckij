@@ -1,9 +1,9 @@
 import {useRouter} from 'next/router';
-import {Query} from '../types/routes';
+import {Query, Routes} from '../types/routes';
 
 interface UseQuery {
   query: Query;
-  route: string;
+  route: Routes[keyof Routes];
   asPath: string;
 }
 

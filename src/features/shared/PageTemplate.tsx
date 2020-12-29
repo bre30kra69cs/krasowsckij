@@ -1,15 +1,9 @@
-import {css} from '@linaria/core';
 import {useState, useCallback} from 'react';
 import {CFC} from '../../types/react';
 import {Page} from '../../ui/Page';
 import {MenuModal} from './MenuModal';
-import {bem} from '../../bem';
 import {Layout} from './Layout';
-
-const main = css`
-  max-height: 100%;
-  overflow: hidden;
-`;
+import {useOverflow} from '../../hooks/use-overflow';
 
 export const PageTemplate: CFC = ({children, className}) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -22,8 +16,10 @@ export const PageTemplate: CFC = ({children, className}) => {
     setIsOpen(false);
   }, []);
 
+  useOverflow(isOpen);
+
   return (
-    <Layout className={bem(isOpen && main)}>
+    <Layout>
       <Page onMenu={onMenu} className={className}>
         {children}
       </Page>

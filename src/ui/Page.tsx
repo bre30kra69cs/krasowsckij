@@ -4,11 +4,12 @@ import {color} from '../theme/palette';
 import {Header, Props as HeaderProps, HEIGHT} from './Header';
 import {Col} from './Col';
 import {bem} from '../bem';
+import {px} from '../theme/units';
 
 const main = css`
   flex: 1 0 auto;
   background-color: ${color('majorShade')};
-  margin-top: ${HEIGHT};
+  margin-top: ${px(HEIGHT)};
 `;
 
 type Props = HeaderProps;
