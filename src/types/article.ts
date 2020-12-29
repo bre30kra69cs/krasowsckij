@@ -1,3 +1,5 @@
+import {Lang} from './inter';
+
 interface ArticleContent {
   title: string;
   image: string;
@@ -6,6 +8,7 @@ interface ArticleContent {
 
 export interface Article {
   id: string;
+  defaultLng: Lang;
   ru: ArticleContent;
   en: ArticleContent;
 }

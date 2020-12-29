@@ -11,7 +11,7 @@ import {ColLine} from './ColLine';
 import {Image} from './Image';
 import {useInter} from '../inter';
 import {InternalLink} from './InternalLink';
-import {capitalize} from '../utils/capitalize';
+import {ReadLink} from './ReadLink';
 
 const main = css`
   background-color: ${color('majorDark')};
@@ -33,29 +33,26 @@ const titleCN = css`
   color: ${color('minorDark')};
 `;
 
-const linkTitle = css`
+const link = css`
   padding: ${unit(2, px)} 0;
-`;
-
-const linkRead = css`
-  padding: ${unit(2, px)};
 `;
 
 interface Props {
   article: Article;
 }
 
+// TODO: extend link areas
 export const ArticleCard: CFC<Props> = ({article, className}) => {
-  const {lng, t} = useInter();
+  const {lng} = useInter();
 
-  // const {id} = article;
-
-  const {title, preview, image} = article[lng];
+  const {defaultLng} = article;
+  const target = article[lng] ?? article[defaultLng];
+  const {title, preview, image} = target;
 
   return (
     <Card className={bem(main, className)}>
-      <ColLine>
-        <Row className={linkTitle}>
+      <ColLine gap="s">
+        <Row className={link}>
           <InternalLink path="article" className={titleCN}>
             {title}
           </InternalLink>
@@ -68,8 +65,8 @@ export const ArticleCard: CFC<Props> = ({article, className}) => {
         <Row>
           <Text type="minor">{preview}</Text>
         </Row>
-        <Row className={linkRead}>
-          <InternalLink path="article">{capitalize(t('read'))}</InternalLink>
+        <Row className={link}>
+          <ReadLink path="article" />
         </Row>
       </ColLine>
     </Card>

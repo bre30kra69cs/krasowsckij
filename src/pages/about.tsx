@@ -3,11 +3,13 @@ import {CFC} from '../types/react';
 import {AboutPage} from '../features/about/Page';
 import {InterProvider} from '../inter';
 import {ThemeProvider} from '../theme/theme';
-import {Query} from '../types/routes';
+import {PageProps} from '../types/routes';
 import {Cookie} from '../cookie';
 import {StoreProvider} from '../store/store';
+import {FlagsProvider} from '../flags/flags';
+import {flagsManager} from '../flags/manager';
 
-export const getServerSideProps: GetServerSideProps<Query> = async (context) => {
+export const getServerSideProps: GetServerSideProps<PageProps> = async (context) => {
   const reqCookie = context.req.cookies ?? {};
   const cookie: Cookie = {
     LNG: 'ru',
@@ -15,22 +17,27 @@ export const getServerSideProps: GetServerSideProps<Query> = async (context) => 
     ...reqCookie
   };
 
+  const flags = flagsManager.get();
+
   return {
     props: {
       theme: cookie.THEME,
-      lng: cookie.LNG
+      lng: cookie.LNG,
+      flags
     }
   };
 };
 
-const About: CFC<Query> = ({theme, lng}) => {
+const About: CFC<PageProps> = ({theme, lng, flags}) => {
   return (
     <StoreProvider>
-      <InterProvider initLng={lng}>
-        <ThemeProvider initTheme={theme}>
-          <AboutPage />
-        </ThemeProvider>
-      </InterProvider>
+      <FlagsProvider initFlags={flags}>
+        <InterProvider initLng={lng}>
+          <ThemeProvider initTheme={theme}>
+            <AboutPage />
+          </ThemeProvider>
+        </InterProvider>
+      </FlagsProvider>
     </StoreProvider>
   );
 };

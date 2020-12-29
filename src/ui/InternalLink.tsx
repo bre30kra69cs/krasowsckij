@@ -7,7 +7,7 @@ import {Routes} from '../types/routes';
 import {bem} from '../bem';
 import {route} from '../hooks/use-router';
 
-const main = css`
+export const main = css`
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -26,7 +26,7 @@ const main = css`
   }
 `;
 
-interface Props {
+export interface Props {
   path: keyof Routes;
 }
 

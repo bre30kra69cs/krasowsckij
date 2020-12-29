@@ -1,5 +1,6 @@
 {
   "id": "aid_0",
+  "defaultLng": "ru",
   "ru": {
     "title": "Тестовая статья",
     "image": "test.jpg",

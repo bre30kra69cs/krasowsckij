@@ -11,6 +11,7 @@ import {bem} from '../bem';
 import {useQuery} from '../hooks/use-query';
 import {route} from '../hooks/use-router';
 import {useStore} from '../store/store';
+import {useFlags} from '../flags/flags';
 
 export const HEIGHT = unit(8);
 
@@ -64,12 +65,16 @@ export interface Props {
 export const Header: CFC<Props> = ({className, onMenu}) => {
   const {t} = useInter();
 
+  const {responseHeader} = useFlags();
+
   const {state} = useStore();
 
   const {route: path} = useQuery();
 
   return (
-    <Row className={bem({[main]: {small: state.viewType === 'small'}}, className)}>
+    <Row
+      className={bem({[main]: {small: responseHeader && state.viewType === 'small'}}, className)}
+    >
       <Row className={bem({[segment]: {start: true}})}></Row>
       <Row className={bem({[segment]: {center: true}})}>
         <InternalLink path="home" className={bem({[link]: {active: path === route('home')}})}>
