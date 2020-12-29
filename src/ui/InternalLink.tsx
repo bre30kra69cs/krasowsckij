@@ -3,7 +3,9 @@ import {css} from '@linaria/core';
 import {CFC} from '../types/react';
 import {unit, px} from '../theme/units';
 import {color} from '../theme/palette';
+import {Routes} from '../types/routes';
 import {bem} from '../bem';
+import {route} from '../hooks/use-router';
 
 const main = css`
   display: flex;
@@ -25,12 +27,12 @@ const main = css`
 `;
 
 interface Props {
-  href?: string;
+  path: keyof Routes;
 }
 
-export const InternalLink: CFC<Props> = ({children, className, href = ''}) => {
+export const InternalLink: CFC<Props> = ({children, className, path = 'home'}) => {
   return (
-    <NextLink href={href}>
+    <NextLink href={route(path)}>
       <a className={bem(main, className)}>{children}</a>
     </NextLink>
   );

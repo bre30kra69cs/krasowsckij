@@ -8,8 +8,6 @@ import {Row} from './Row';
 import {InternalLink} from './InternalLink';
 import {BuildButton} from './BuildButton';
 import {bem} from '../bem';
-import {useRoute} from '../hooks/use-route';
-import {useQuery} from '../hooks/use-query';
 
 const main = css`
   justify-content: center;
@@ -48,25 +46,15 @@ export interface Props {
 export const Header: CFC<Props> = ({className, onMenu}) => {
   const {t} = useInter();
 
-  const {asPath} = useQuery();
-
-  const route = useRoute();
-
   // TODO: create more smartest router hook
   return (
     <Row className={bem(main, className)}>
       <Row className={bem({[segment]: {start: true}})}></Row>
       <Row className={bem({[segment]: {center: true}})}>
-        <InternalLink
-          href={route('home')}
-          className={bem({[link]: {active: asPath === route('home')}})}
-        >
+        <InternalLink path="home" className={link}>
           {capitalize(t('home'))}
         </InternalLink>
-        <InternalLink
-          href={route('about')}
-          className={bem({[link]: {active: asPath === route('about')}})}
-        >
+        <InternalLink path="about" className={link}>
           {capitalize(t('about'))}
         </InternalLink>
       </Row>

@@ -1,11 +1,10 @@
-import {createContext, useContext, useMemo} from 'react';
+import {createContext, useContext, useState, useMemo} from 'react';
 import {THEME_DARK, THEME_LIGHT, Theme} from './palette';
 import {CFC} from '../types/react';
 import {ThemeName} from '../types/theme';
 import {ConstMap} from '../types/values';
-import {useQuery} from '../hooks/use-query';
-import {useRoute} from '../hooks/use-route';
 import {useRouter} from '../hooks/use-router';
+import {cookieManager} from '../cookie';
 
 export const THEME_VALUES: ConstMap<ThemeName> = {
   LIGHT: 'light',
@@ -27,7 +26,7 @@ const themeContext = createContext<ThemeContext>({
 });
 
 interface Props {
-  theme?: ThemeName;
+  initTheme: ThemeName;
 }
 
 const THEME_MAP: Record<ThemeName, Theme> = {
@@ -35,13 +34,10 @@ const THEME_MAP: Record<ThemeName, Theme> = {
   light: THEME_LIGHT
 };
 
-export const ThemeProvider: CFC<Props> = ({children}) => {
-  const {query} = useQuery();
-  const {theme: themeName} = query;
+export const ThemeProvider: CFC<Props> = ({children, initTheme}) => {
+  const [themeName, setTheme] = useState(initTheme);
 
   const router = useRouter();
-
-  const route = useRoute();
 
   const value = useMemo((): ThemeContext => {
     const theme = THEME_MAP[themeName] || THEME_MAP[DEFAULT_THEME];
@@ -50,12 +46,11 @@ export const ThemeProvider: CFC<Props> = ({children}) => {
       themeName,
       theme,
       setTheme: (nextTheme) => {
-        router(undefined, {
-          theme: nextTheme
-        });
+        cookieManager.update('THEME', nextTheme);
+        setTheme(nextTheme);
       }
     };
-  }, [themeName, router, route]);
+  }, [themeName, router]);
 
   return <themeContext.Provider value={value}>{children}</themeContext.Provider>;
 };

@@ -1,18 +1,24 @@
 import {useRouter as useRouterNext} from 'next/router';
 import {useCallback} from 'react';
-import {useRoute} from './use-route';
-import {Routes, Params} from '../types/routes';
+import {Routes} from '../types/routes';
+
+const ROUTES: Routes = {
+  home: '/',
+  about: '/about'
+};
+
+export const route = (path: keyof Routes) => {
+  return ROUTES[path];
+};
 
 export const useRouter = () => {
   const router = useRouterNext();
 
-  const route = useRoute();
-
   const routeTo = useCallback(
-    (path?: keyof Routes, options?: Partial<Params>) => {
-      router.push(route(path, options));
+    (path: keyof Routes) => {
+      router.push(route(path));
     },
-    [router, route]
+    [router]
   );
 
   return routeTo;

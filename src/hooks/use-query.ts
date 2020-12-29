@@ -1,8 +1,8 @@
 import {useRouter} from 'next/router';
-import {Params} from '../types/routes';
+import {Query} from '../types/routes';
 
 interface UseQuery {
-  query: Params;
+  query: Query;
   route: string;
   asPath: string;
 }
@@ -12,7 +12,7 @@ export const useQuery = () => {
 
   return {
     query: {
-      lng: router.query.lng,
+      lng: router.locale,
       theme: router.query.theme
     },
     route: router.route,

@@ -1,10 +1,9 @@
-import {createContext, useContext, useMemo} from 'react';
+import {createContext, useContext, useState, useMemo} from 'react';
 import {CFC} from '../types/react';
 import {Lang} from '../types/inter';
 import {ConstMap} from '../types/values';
-import {useQuery} from '../hooks/use-query';
-import {useRoute} from '../hooks/use-route';
 import {useRouter} from '../hooks/use-router';
+import {cookieManager} from '../cookie';
 import dict from '../../dicts/dict.json';
 
 type Dict = Record<Lang, Record<string, string>>;
@@ -31,18 +30,15 @@ export const interContext = createContext<InterContext>({
 });
 
 interface Props {
-  lng?: Lang;
+  initLng: Lang;
 }
 
 const FALLBACK = 'NO_INTER';
 
-export const InterProvider: CFC<Props> = ({children}) => {
-  const {query} = useQuery();
-  const {lng} = query;
+export const InterProvider: CFC<Props> = ({children, initLng}) => {
+  const [lng, setLng] = useState(initLng);
 
   const router = useRouter();
-
-  const route = useRoute();
 
   const value = useMemo((): InterContext => {
     return {
@@ -51,12 +47,11 @@ export const InterProvider: CFC<Props> = ({children}) => {
         return DICT?.[lng]?.[key] || key || FALLBACK;
       },
       setLng: (nextLng) => {
-        router(undefined, {
-          lng: nextLng
-        });
+        cookieManager.update('LNG', nextLng);
+        setLng(nextLng);
       }
     };
-  }, [lng, router, route]);
+  }, [lng, router]);
 
   return <interContext.Provider value={value}>{children}</interContext.Provider>;
 };

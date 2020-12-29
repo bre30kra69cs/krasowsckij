@@ -15,14 +15,5 @@ module.exports = withCSS({
     });
 
     return config;
-  },
-  async redirects() {
-    return [
-      {
-        source: '/',
-        destination: '/ru/dark/home',
-        permanent: true
-      }
-    ];
   }
 });
