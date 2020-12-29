@@ -1,6 +1,6 @@
 import {CFC} from '../../types/react';
 import {PageTemplate} from '../shared/PageTemplate';
-import {Article} from '../../types/article';
+import {Preview} from '../../types/data';
 import {ArticleCard} from '../../ui/ArticleCard';
 import {ColLine} from '../../ui/ColLine';
 import {css} from '@linaria/core';
@@ -14,17 +14,17 @@ export const main = css`
 `;
 
 interface Props {
-  articles: Article[];
+  previews: Preview[];
 }
 
-export const HomePage: CFC<Props> = ({className, articles}) => {
+export const HomePage: CFC<Props> = ({className, previews}) => {
   useViewType();
 
   return (
     <PageTemplate className={bem(main, className)}>
       <ColLine gap="m">
-        {articles.map((article, index) => {
-          return <ArticleCard key={index} article={article} />;
+        {previews.map((preview, index) => {
+          return <ArticleCard key={index} info={preview} />;
         })}
       </ColLine>
     </PageTemplate>

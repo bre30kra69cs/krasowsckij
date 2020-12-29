@@ -1,14 +1,14 @@
 import {Lang} from './inter';
 
-interface ArticleContent {
+interface PreviewContent {
   title: string;
   image: string;
   preview: string;
 }
 
-export interface Article {
+export interface Preview {
   id: string;
   defaultLng: Lang;
-  ru: ArticleContent;
-  en: ArticleContent;
+  ru: PreviewContent;
+  en: PreviewContent;
 }

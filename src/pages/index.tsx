@@ -8,8 +8,7 @@ import {Cookie} from '../cookie';
 import {StoreProvider} from '../store/store';
 import {FlagsProvider} from '../flags/flags';
 import {flagsManager} from '../flags/manager';
-
-import test from '../../data/preview/test.json';
+import {previewManager} from '../data/preview';
 
 export const getServerSideProps: GetServerSideProps<HomePageProps> = async (context) => {
   const reqCookie = context.req.cookies ?? {};
@@ -21,23 +20,25 @@ export const getServerSideProps: GetServerSideProps<HomePageProps> = async (cont
 
   const flags = flagsManager.get();
 
+  const previews = previewManager.get();
+
   return {
     props: {
       theme: cookie.THEME,
       lng: cookie.LNG,
-      articles: [test, test, test],
+      previews,
       flags
     }
   };
 };
 
-const Home: CFC<HomePageProps> = ({theme, lng, articles, flags}) => {
+const Home: CFC<HomePageProps> = ({theme, lng, previews, flags}) => {
   return (
     <StoreProvider>
       <FlagsProvider initFlags={flags}>
         <InterProvider initLng={lng}>
           <ThemeProvider initTheme={theme}>
-            <HomePage articles={articles} />
+            <HomePage previews={previews} />
           </ThemeProvider>
         </InterProvider>
       </FlagsProvider>

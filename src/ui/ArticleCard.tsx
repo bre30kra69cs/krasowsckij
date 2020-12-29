@@ -1,6 +1,6 @@
 import {css} from '@linaria/core';
 import {CFC} from '../types/react';
-import {Article} from '../types/article';
+import {Preview} from '../types/data';
 import {Card} from './Card';
 import {Row} from './Row';
 import {Text} from './Text';
@@ -38,15 +38,15 @@ const link = css`
 `;
 
 interface Props {
-  article: Article;
+  info: Preview;
 }
 
 // TODO: extend link areas
-export const ArticleCard: CFC<Props> = ({article, className}) => {
+export const ArticleCard: CFC<Props> = ({info, className}) => {
   const {lng} = useInter();
 
-  const {defaultLng} = article;
-  const target = article[lng] ?? article[defaultLng];
+  const {defaultLng} = info;
+  const target = info[lng] ?? info[defaultLng];
   const {title, preview, image} = target;
 
   return (
