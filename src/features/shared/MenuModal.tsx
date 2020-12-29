@@ -8,7 +8,7 @@ import {ToggleTheme} from '../../ui//ToggleTheme';
 import {ToggleLng} from '../../ui/ToggleLng';
 import {ColLine} from '../../ui//ColLine';
 import {useInter, DEFAULT_LNG, LNG_VALUES} from '../../inter';
-import {capitalize} from '../../utils/string';
+import {capitalize} from '../../utils/capitalize';
 import {useTheme, DEFAULT_THEME, THEME_VALUES} from '../../theme/theme';
 import {ThemeName} from '../../types/theme';
 import {Lang} from '../../types/inter';

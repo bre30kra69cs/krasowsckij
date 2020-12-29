@@ -7,6 +7,8 @@ import {unit, px} from '../theme/units';
 import {color} from '../theme/palette';
 import {bem} from '../bem';
 import {GITHUB, LINLEDIN, EMAIL} from '../consts/links';
+import {useInter} from '../inter';
+import {uppercase} from '../utils/uppercase';
 
 export const roboto = css`
   font-family: Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
@@ -149,6 +151,8 @@ type Background = 'none' | 'github' | 'email' | 'linkedin';
 export const Intro: CFC = () => {
   const [status, setStatus] = useState<Background>('none');
 
+  const {t} = useInter();
+
   const setGithub = useCallback(() => {
     setStatus('github');
   }, []);
@@ -170,21 +174,26 @@ export const Intro: CFC = () => {
       <Col className={bem({[background]: {[status]: true}})} />
       <Col className={box}>
         <GrateText className={roboto}>
-          ПРИВЕТ! МЕНЯ ЗОВУТ <GrateText className={bem(roboto, matterLight)}>АНДРЕЙ</GrateText>
+          {uppercase(t('intro:hello'))}{' '}
+          <GrateText className={bem(roboto, matterLight)}>{uppercase(t('intro:name'))}</GrateText>
         </GrateText>
         <GrateText className={roboto}>
-          Я{' '}
+          {uppercase(t('intro:i'))}{' '}
           <GrateText className={bem(textMain, web, courierItalic, matterLight)}>
-            FRONT-END
+            {uppercase(t('intro:frontend'))}
           </GrateText>{' '}
-          <GrateText className={bem(web, courierItalic)}>РАЗРАБОТЧИК</GrateText>
+          <GrateText className={bem(web, courierItalic)}>
+            {uppercase(t('intro:developer'))}
+          </GrateText>
         </GrateText>
         <GrateText className={bem(arialOblique, reactCN)}>
-          МОЙ ОСНОВНОЙ ИНСТРУМЕНТ ЭТО{' '}
-          <GrateText className={bem(textMain, roboto, matterLight, reactCN)}>REACT.JS</GrateText>
+          {uppercase(t('intro:mytool'))}{' '}
+          <GrateText className={bem(textMain, roboto, matterLight, reactCN)}>
+            {uppercase(t('intro:react'))}
+          </GrateText>
         </GrateText>
         <GrateText className={roboto}>
-          МОИ{' '}
+          {uppercase(t('intro:my'))}{' '}
           <GrateText className={bem(textMain, roboto, matter)}>
             <ExternalLink
               className={bem(textMain, roboto, matter, link)}
@@ -203,7 +212,7 @@ export const Intro: CFC = () => {
           >
             EMAIL
           </ExternalLink>{' '}
-          И{' '}
+          {uppercase(t('intro:and'))}{' '}
           <GrateText className={bem(roboto, matter)}>
             <ExternalLink
               className={bem(textMain, roboto, matter, link)}

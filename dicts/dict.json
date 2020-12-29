@@ -3,12 +3,32 @@
     "home": "главная",
     "about": "обо мне",
     "theme": "тема",
-    "language": "язык"
+    "language": "язык",
+    "intro:hello": "привет! меня зоыу",
+    "intro:name": "андрей",
+    "intro:i": "я",
+    "intro:frontend": "front-end",
+    "intro:developer": "разработчик",
+    "intro:mytool": "мой основной инструмент это",
+    "intro:react": "react.js",
+    "intro:my": "мои",
+    "intro:and": "и",
+    "read": "читать"
   },
   "en": {
     "home": "home",
     "about": "about me",
     "theme": "theme",
-    "language": "language"
+    "language": "language",
+    "intro:hello": "hello! my name is",
+    "intro:name": "andrey",
+    "intro:i": "i",
+    "intro:frontend": "front-end",
+    "intro:developer": "developer",
+    "intro:mytool": "my basic & favorite tool is",
+    "intro:react": "react.js",
+    "intro:my": "my",
+    "intro:and": "",
+    "read": "read"
   }
 }

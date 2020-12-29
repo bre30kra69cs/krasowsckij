@@ -19,7 +19,6 @@ export const StoreProvider: CFC = ({children}) => {
       state,
       dispatch: (action) => {
         const nextState = action(state);
-        console.log(nextState);
         setState({...nextState});
       }
     };

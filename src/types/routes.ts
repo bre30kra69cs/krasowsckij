@@ -14,6 +14,7 @@ export interface Query {
 export interface Routes {
   home: '/';
   about: '/about';
+  article: '/article';
 }
 
 export interface PageProps extends Query {

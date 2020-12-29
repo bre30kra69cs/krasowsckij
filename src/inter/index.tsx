@@ -44,7 +44,7 @@ export const InterProvider: CFC<Props> = ({children, initLng}) => {
     return {
       lng,
       t: (key) => {
-        return DICT?.[lng]?.[key] || key || FALLBACK;
+        return DICT?.[lng]?.[key] ?? key ?? FALLBACK;
       },
       setLng: (nextLng) => {
         cookieManager.update('LNG', nextLng);

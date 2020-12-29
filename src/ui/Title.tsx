@@ -21,8 +21,13 @@ const main = css`
 
 export interface Props {
   type?: 'major' | 'minor';
+  onClick?: () => void;
 }
 
-export const Title: CFC<Props> = ({children, className, type = 'major'}) => {
-  return <p className={bem({[main]: {[type]: true}}, className)}>{children}</p>;
+export const Title: CFC<Props> = ({children, className, type = 'major', onClick}) => {
+  return (
+    <p className={bem({[main]: {[type]: true}}, className)} onClick={onClick}>
+      {children}
+    </p>
+  );
 };

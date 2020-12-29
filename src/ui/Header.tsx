@@ -3,7 +3,7 @@ import {CFC} from '../types/react';
 import {unit, px} from '../theme/units';
 import {color} from '../theme/palette';
 import {useInter} from '../inter';
-import {capitalize} from '../utils/string';
+import {capitalize} from '../utils/capitalize';
 import {Row} from './Row';
 import {InternalLink} from './InternalLink';
 import {BuildButton} from './BuildButton';

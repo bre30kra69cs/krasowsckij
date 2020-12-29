@@ -4,7 +4,8 @@ import {Routes} from '../types/routes';
 
 const ROUTES: Routes = {
   home: '/',
-  about: '/about'
+  about: '/about',
+  article: '/article'
 };
 
 export const route = (path: keyof Routes) => {

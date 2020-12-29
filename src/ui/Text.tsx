@@ -5,7 +5,8 @@ import {color} from '../theme/palette';
 import {bem} from '../bem';
 
 const main = css`
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell,
+    'Open Sans', 'Helvetica Neue', sans-serif;
   font-style: normal;
   font-weight: normal;
   font-size: ${unit(2.5, px)};
