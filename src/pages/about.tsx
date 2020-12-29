@@ -4,8 +4,8 @@ import {AboutPage} from '../features/about/Page';
 import {InterProvider} from '../inter';
 import {ThemeProvider} from '../theme/theme';
 import {Query} from '../types/routes';
-
 import {Cookie} from '../cookie';
+import {StoreProvider} from '../store/store';
 
 export const getServerSideProps: GetServerSideProps<Query> = async (context) => {
   const reqCookie = context.req.cookies ?? {};
@@ -25,11 +25,13 @@ export const getServerSideProps: GetServerSideProps<Query> = async (context) => 
 
 const About: CFC<Query> = ({theme, lng}) => {
   return (
-    <InterProvider initLng={lng}>
-      <ThemeProvider initTheme={theme}>
-        <AboutPage />
-      </ThemeProvider>
-    </InterProvider>
+    <StoreProvider>
+      <InterProvider initLng={lng}>
+        <ThemeProvider initTheme={theme}>
+          <AboutPage />
+        </ThemeProvider>
+      </InterProvider>
+    </StoreProvider>
   );
 };
 

@@ -11,7 +11,7 @@ const main = css`
   padding: ${unit(8, px)};
   background-color: ${color('minor')};
   overflow: hidden;
-  box-shadow: 0 0 ${unit(1, px)} ${unit(0.1, px)};
+  box-shadow: 0 0 ${unit(1.5, px)} ${unit(0.1, px)};
 `;
 
 const close = css`

@@ -6,6 +6,7 @@ import {ColLine} from '../../ui/ColLine';
 import {css} from '@linaria/core';
 import {bem} from '../../bem';
 import {unit, px} from '../../theme/units';
+import {useViewType} from '../../hooks/use-view-type';
 
 export const main = css`
   align-items: center;
@@ -17,6 +18,8 @@ interface Props {
 }
 
 export const HomePage: CFC<Props> = ({className, articles}) => {
+  useViewType();
+
   return (
     <PageTemplate className={bem(main, className)}>
       <ColLine gap="m">

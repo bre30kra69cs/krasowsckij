@@ -5,6 +5,8 @@ import {InterProvider} from '../inter';
 import {ThemeProvider} from '../theme/theme';
 import {PageProps} from '../types/routes';
 import {Cookie} from '../cookie';
+import {StoreProvider} from '../store/store';
+
 import test from '../../data/articles/test.json';
 
 export const getServerSideProps: GetServerSideProps<PageProps> = async (context) => {
@@ -26,11 +28,13 @@ export const getServerSideProps: GetServerSideProps<PageProps> = async (context)
 
 const Home: CFC<PageProps> = ({theme, lng, articles}) => {
   return (
-    <InterProvider initLng={lng}>
-      <ThemeProvider initTheme={theme}>
-        <HomePage articles={articles} />
-      </ThemeProvider>
-    </InterProvider>
+    <StoreProvider>
+      <InterProvider initLng={lng}>
+        <ThemeProvider initTheme={theme}>
+          <HomePage articles={articles} />
+        </ThemeProvider>
+      </InterProvider>
+    </StoreProvider>
   );
 };
 
