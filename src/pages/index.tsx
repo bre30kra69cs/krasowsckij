@@ -3,11 +3,11 @@ import {CFC} from '../types/react';
 import {HomePage} from '../features/home/Page';
 import {InterProvider} from '../inter';
 import {ThemeProvider} from '../theme/theme';
-import {Query} from '../types/routes';
-import {Layout} from '../features/shared/Layout';
+import {PageProps} from '../types/routes';
 import {Cookie} from '../cookie';
+import test from '../../data/articles/test.json';
 
-export const getServerSideProps: GetServerSideProps<Query> = async (context) => {
+export const getServerSideProps: GetServerSideProps<PageProps> = async (context) => {
   const reqCookie = context.req.cookies ?? {};
   const cookie: Cookie = {
     LNG: 'ru',
@@ -18,18 +18,17 @@ export const getServerSideProps: GetServerSideProps<Query> = async (context) => 
   return {
     props: {
       theme: cookie.THEME,
-      lng: cookie.LNG
+      lng: cookie.LNG,
+      articles: [test, test, test]
     }
   };
 };
 
-const Home: CFC<Query> = ({theme, lng}) => {
+const Home: CFC<PageProps> = ({theme, lng, articles}) => {
   return (
     <InterProvider initLng={lng}>
       <ThemeProvider initTheme={theme}>
-        <Layout>
-          <HomePage />
-        </Layout>
+        <HomePage articles={articles} />
       </ThemeProvider>
     </InterProvider>
   );

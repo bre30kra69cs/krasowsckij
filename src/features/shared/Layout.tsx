@@ -1,15 +1,29 @@
-import {useMemo, CSSProperties} from 'react';
+import {useMemo, CSSProperties, WheelEvent} from 'react';
 import {CFC} from '../../types/react';
 import {useTheme} from '../../theme/theme';
 import {Theme} from '../../theme/palette';
-import {layout} from '../../cn/layout';
+import {bem} from '../../bem';
+import {css} from '@linaria/core';
+
+export const main = css`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: stretch;
+  flex: 1 0 auto;
+  min-height: 100%;
+`;
 
 type Vars = CSSProperties &
   {
     [K in keyof Theme as K extends string ? `--${K}` : never]: string;
   };
 
-export const Layout: CFC = ({children}) => {
+interface Props {
+  onWheel?: (event: WheelEvent) => void;
+}
+
+export const Layout: CFC<Props> = ({children, className, onWheel}) => {
   const {theme} = useTheme();
 
   const style = useMemo((): Vars => {
@@ -32,7 +46,7 @@ export const Layout: CFC = ({children}) => {
   }, [theme]);
 
   return (
-    <div className={layout} style={style}>
+    <div className={bem(main, className)} style={style} onWheel={onWheel}>
       {children}
     </div>
   );

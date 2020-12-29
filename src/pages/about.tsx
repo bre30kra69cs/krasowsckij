@@ -4,7 +4,7 @@ import {AboutPage} from '../features/about/Page';
 import {InterProvider} from '../inter';
 import {ThemeProvider} from '../theme/theme';
 import {Query} from '../types/routes';
-import {Layout} from '../features/shared/Layout';
+
 import {Cookie} from '../cookie';
 
 export const getServerSideProps: GetServerSideProps<Query> = async (context) => {
@@ -27,9 +27,7 @@ const About: CFC<Query> = ({theme, lng}) => {
   return (
     <InterProvider initLng={lng}>
       <ThemeProvider initTheme={theme}>
-        <Layout>
-          <AboutPage />
-        </Layout>
+        <AboutPage />
       </ThemeProvider>
     </InterProvider>
   );

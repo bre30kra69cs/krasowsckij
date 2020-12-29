@@ -1,5 +1,6 @@
 import {Lang} from './inter';
 import {ThemeName} from './theme';
+import {Article} from './article';
 
 export interface Params {
   theme: ThemeName;
@@ -13,4 +14,8 @@ export interface Query {
 export interface Routes {
   home: '/';
   about: '/about';
+}
+
+export interface PageProps extends Query {
+  articles: Article[];
 }

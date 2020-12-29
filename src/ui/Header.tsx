@@ -9,10 +9,14 @@ import {InternalLink} from './InternalLink';
 import {BuildButton} from './BuildButton';
 import {bem} from '../bem';
 
+export const HEIGHT = unit(6, px);
+
 const main = css`
+  position: fixed;
+  width: 100%;
   justify-content: center;
   background-color: ${color('majorDark')};
-  height: ${unit(6, px)};
+  height: ${HEIGHT};
 `;
 
 const link = css`

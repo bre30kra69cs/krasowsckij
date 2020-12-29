@@ -1,17 +1,22 @@
 import {FC, ReactNode, CSSProperties} from 'react';
 
-export type CFC<T = unknown> = FC<
+export type CP<T> = T & {
+  className?: string;
+  style?: CSSProperties;
+};
+
+export type CFP<T> = CP<
   T & {
-    className?: string;
     children?: ReactNode;
-    style?: CSSProperties;
   }
 >;
 
-export type CFCS<T = unknown> = FC<
+export type CFPS<T> = CP<
   T & {
-    className?: string;
     children?: ReactNode[];
-    style?: CSSProperties;
   }
 >;
+
+export type CFC<T = unknown> = FC<CFP<T>>;
+
+export type CFCS<T = unknown> = FC<CFPS<T>>;

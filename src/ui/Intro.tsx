@@ -3,11 +3,28 @@ import {css} from '@linaria/core';
 import {CFC} from '../types/react';
 import {GrateText, main as textMain} from './GrateText';
 import {Col} from './Col';
-import {roboto, arialOblique, courierItalic} from '../cn/fonts';
 import {unit, px} from '../theme/units';
 import {color} from '../theme/palette';
 import {bem} from '../bem';
 import {GITHUB, LINLEDIN, EMAIL} from '../consts/links';
+
+export const roboto = css`
+  font-family: Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-style: normal;
+  font-weight: bold;
+`;
+
+export const courierItalic = css`
+  font-family: 'Courier New', Courier, monospace;
+  font-style: italic;
+  font-weight: bold;
+`;
+
+export const arialOblique = css`
+  font-family: Arial, Helvetica, sans-serif;
+  font-style: oblique;
+  font-weight: bold;
+`;
 
 // TODO: exclude link component
 const mainLink = css`

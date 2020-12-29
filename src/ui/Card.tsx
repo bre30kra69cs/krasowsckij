@@ -7,6 +7,7 @@ import {unit, px} from '../theme/units';
 const main = css`
   padding: ${unit(2, px)};
   border-radius: ${unit(1, px)};
+  overflow: hidden;
 `;
 
 export const Card: CFC = ({children, className}) => {

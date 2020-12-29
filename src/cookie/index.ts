@@ -51,7 +51,6 @@ const createCookieManager = () => {
     const parsed = parse(cookie);
     const swapped = swap(key, value, parsed);
     const nextCookies = unparse(swapped);
-    console.log(key, value, parsed, swapped, nextCookies);
     set(nextCookies);
   };
 

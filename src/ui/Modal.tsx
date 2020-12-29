@@ -7,11 +7,9 @@ import {noop} from '../utils/noop';
 import {useEscape} from '../hooks/use-scape';
 
 const main = css`
-  position: absolute;
-  left: 0;
-  top: 0;
-  bottom: 0;
-  right: 0;
+  position: fixed;
+  width: 100%;
+  height: 100%;
   justify-content: center;
   align-items: center;
   animation-name: mouting;
