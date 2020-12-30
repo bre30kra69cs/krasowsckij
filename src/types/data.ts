@@ -12,3 +12,5 @@ export interface Preview {
   ru: PreviewContent;
   en: PreviewContent;
 }
+
+export type Article = string;

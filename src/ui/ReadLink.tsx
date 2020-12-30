@@ -24,12 +24,14 @@ const main = css`
 
 type Props = InternalLinkProps;
 
-export const ReadLink: CFC<Props> = ({className, path}) => {
+export const ReadLink: CFC<Props> = ({className, path, id}) => {
   const {t} = useInter();
 
   return (
     <Row className={bem(main, className)}>
-      <InternalLink path={path}>{t('read')}</InternalLink>
+      <InternalLink path={path} id={id}>
+        {t('read')}
+      </InternalLink>
       <ChevronIcon />
     </Row>
   );

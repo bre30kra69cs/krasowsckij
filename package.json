@@ -10,7 +10,8 @@
     "typescript": "npx tsc --build ./tsconfig.json",
     "format": "npm run eslint && npm run prettier",
     "check": "npm run eslint && npm run prettier && npm run typescript",
-    "lint-staged": "npm run typescript && npx lint-staged"
+    "lint-staged": "npm run typescript && npx lint-staged",
+    "md:parse": "node ./packages/mdparser"
   },
   "dependencies": {
     "@linaria/babel-preset": "^3.0.0-beta.1",
@@ -22,7 +23,8 @@
     "classnames": "^2.2.6",
     "next": "10.0.4",
     "react": "17.0.1",
-    "react-dom": "17.0.1"
+    "react-dom": "17.0.1",
+    "react-markdown": "^5.0.3"
   },
   "devDependencies": {
     "@babel/core": "^7.12.10",

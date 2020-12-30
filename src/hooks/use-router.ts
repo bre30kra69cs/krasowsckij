@@ -1,6 +1,6 @@
 import {useRouter as useRouterNext} from 'next/router';
 import {useCallback} from 'react';
-import {Routes} from '../types/routes';
+import {Routes, Options} from '../types/routes';
 
 const ROUTES: Routes = {
   home: '/',
@@ -8,16 +8,16 @@ const ROUTES: Routes = {
   article: '/article'
 };
 
-export const route = (path: keyof Routes) => {
-  return ROUTES[path];
+export const route = (path: keyof Routes, options?: Options) => {
+  return path === 'article' ? `${ROUTES[path]}/${options?.id ?? ''}` : ROUTES[path];
 };
 
 export const useRouter = () => {
   const router = useRouterNext();
 
   const routeTo = useCallback(
-    (path: keyof Routes) => {
-      router.push(route(path));
+    (path: keyof Routes, options?: Options) => {
+      router.push(route(path, options));
     },
     [router]
   );

@@ -1,6 +1,6 @@
 import {Lang} from './inter';
 import {ThemeName} from './theme';
-import {Preview} from './data';
+import {Preview, Article} from './data';
 import {Flags} from './flags';
 
 export interface Params {
@@ -10,6 +10,10 @@ export interface Params {
 export interface Query {
   theme: ThemeName;
   lng: Lang;
+}
+
+export interface Options {
+  id?: string;
 }
 
 export interface Routes {
@@ -24,4 +28,8 @@ export interface PageProps extends Query {
 
 export interface HomePageProps extends PageProps {
   previews: Preview[];
+}
+
+export interface ArticlePageProps extends PageProps {
+  article: Article;
 }

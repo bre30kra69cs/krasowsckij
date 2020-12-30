@@ -1,9 +1,10 @@
+import {useMemo} from 'react';
 import NextLink from 'next/link';
 import {css} from '@linaria/core';
 import {CFC} from '../types/react';
 import {unit, px} from '../theme/units';
 import {color} from '../theme/palette';
-import {Routes} from '../types/routes';
+import {Routes, Options} from '../types/routes';
 import {bem} from '../bem';
 import {route} from '../hooks/use-router';
 
@@ -28,11 +29,19 @@ export const main = css`
 
 export interface Props {
   path: keyof Routes;
+  id?: string;
 }
 
-export const InternalLink: CFC<Props> = ({children, className, path = 'home'}) => {
+export const InternalLink: CFC<Props> = ({children, className, path = 'home', id}) => {
+  const options = useMemo(
+    (): Options => ({
+      id
+    }),
+    [id]
+  );
+
   return (
-    <NextLink href={route(path)}>
+    <NextLink href={route(path, options)}>
       <a className={bem(main, className)}>{children}</a>
     </NextLink>
   );

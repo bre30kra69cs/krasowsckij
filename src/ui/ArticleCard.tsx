@@ -46,7 +46,7 @@ interface Props {
 export const ArticleCard: CFC<Props> = ({info, className}) => {
   const {lng} = useInter();
 
-  const {defaultLng} = info;
+  const {id, defaultLng} = info;
   const target = info[lng] ?? info[defaultLng];
   const {title, preview, image} = target;
 
@@ -54,7 +54,7 @@ export const ArticleCard: CFC<Props> = ({info, className}) => {
     <Card className={bem(main, className)}>
       <ColLine gap="s">
         <Row className={link}>
-          <InternalLink path="article" className={titleCN}>
+          <InternalLink path="article" className={titleCN} id={id}>
             {title}
           </InternalLink>
         </Row>
@@ -67,7 +67,7 @@ export const ArticleCard: CFC<Props> = ({info, className}) => {
           <Text type="minor">{preview}</Text>
         </Row>
         <Row className={link}>
-          <ReadLink path="article" />
+          <ReadLink path="article" id={id} />
         </Row>
       </ColLine>
     </Card>
