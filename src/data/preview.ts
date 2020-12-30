@@ -1,9 +1,9 @@
-import testPreview from '../../data/preview/test.json';
+import statirjs from '../../data/preview/statirjs.json';
 import {Preview} from '../types/data';
 
 const createPreviewManager = () => {
   const get = () => {
-    return [testPreview, testPreview, testPreview] as Preview[];
+    return [statirjs] as Preview[];
   };
 
   return {

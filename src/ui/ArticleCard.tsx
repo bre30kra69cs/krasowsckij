@@ -20,6 +20,7 @@ const main = css`
 `;
 
 const imageCN = css`
+  background-color: ${color('majorLight')};
   width: ${unit(100, px)};
 `;
 
