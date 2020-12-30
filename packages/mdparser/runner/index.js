@@ -4,6 +4,7 @@ const fs = require('fs');
 const path = require('path');
 const {tokenize} = require('../tokenize');
 const {lexenize} = require('../lexenize');
+const {ast} = require('../ast');
 const {debug} = require('../debug');
 
 const read = (targetPath) => {
@@ -21,8 +22,9 @@ const runner = (target, destination) => {
   const md = read(targetPath);
   const tokens = tokenize(md);
   const lexems = lexenize(tokens);
-  write(destinationPath, lexems);
-  debug(lexems);
+  const tree = ast(lexems);
+  write(destinationPath, tree);
+  debug(tree);
 };
 
 module.exports = {

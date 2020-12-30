@@ -29,6 +29,10 @@ const lexenize = (tokens) => {
     getPointer().value += value;
   };
 
+  const setOptions = (options) => {
+    getPointer().options = options;
+  };
+
   const getType = () => {
     return getPointer().type;
   };
@@ -55,13 +59,14 @@ const lexenize = (tokens) => {
     resetPointer();
   };
 
-  const push = (value, type) => {
+  const push = (value, type, options) => {
     setType(type);
     setValue(value);
+    options && setOptions(options);
   };
 
-  const pushAndFlush = (value, type) => {
-    push(value, type);
+  const pushAndFlush = (value, type, options) => {
+    push(value, type, options);
     flush();
   };
 

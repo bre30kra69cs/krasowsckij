@@ -10,17 +10,17 @@ const tireTest = createTest('-', PRIORITIES.NORMAL, (tokens, {setValue}) => {
 });
 
 const lineTest = createTest(
-  {
-    prevToken: '-',
-    curToken: '-'
+  ({curToken, nextToken}) => {
+    return curToken === '-' && nextToken !== '-';
   },
+
   PRIORITIES.HIGH,
-  (tokens, {getValue, setValue, pushAndFlush}) => {
+  ({nextToken}, {getValue, pushAndFlush}) => {
     return () => {
       if (getValue().length === 2) {
         pushAndFlush('-', LEXEMS_TYPES.LINE);
       } else {
-        setValue('-');
+        pushAndFlush('-', LEXEMS_TYPES.TIRE);
       }
     };
   }
