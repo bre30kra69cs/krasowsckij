@@ -5,10 +5,10 @@ import {css} from '@linaria/core';
 import {bem} from '../../bem';
 import {unit, px} from '../../theme/units';
 import {useViewType} from '../../hooks/use-view-type';
-import {Col} from '../../ui/Col';
-import {mainInner as titleInner} from '../../ui/Title';
-import {mainInner as textInner} from '../../ui/Text';
-import {mainInner as externalInner} from '../../ui/ExternalLink';
+import {Col} from '../../ui/boxs/Col';
+import {mainInner as titleInner} from '../../ui/typography/Title';
+import {mainInner as textInner} from '../../ui/typography/Text';
+import {mainInner as externalInner} from '../../ui/links/ExternalLink';
 import {color} from '../../theme/palette';
 
 const main = css`

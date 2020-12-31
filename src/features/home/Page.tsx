@@ -1,8 +1,8 @@
 import {CFC} from '../../types/react';
 import {PageTemplate} from '../shared/PageTemplate';
 import {Preview} from '../../types/data';
-import {ArticleCard} from '../../ui/ArticleCard';
-import {ColLine} from '../../ui/ColLine';
+import {ArticleCard} from '../../ui/cards/ArticleCard';
+import {ColLine} from '../../ui/boxs/ColLine';
 import {css} from '@linaria/core';
 import {bem} from '../../bem';
 import {unit, px} from '../../theme/units';

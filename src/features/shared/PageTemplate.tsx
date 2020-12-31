@@ -1,6 +1,6 @@
 import {useState, useCallback} from 'react';
 import {CFC} from '../../types/react';
-import {Page} from '../../ui/Page';
+import {Page} from '../../ui/templates/Page';
 import {MenuModal} from './MenuModal';
 import {Layout} from './Layout';
 import {useOverflow} from '../../hooks/use-overflow';

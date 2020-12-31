@@ -22,7 +22,10 @@ export const PALETTE = {
   redDark: '#661b0a',
   // TODO: swap to hex
   tomato: 'tomato',
-  yellow: 'yellow'
+  yellow: 'yellow',
+  nextGrayDark: '#3b3b3b',
+  nextGrayShade: '#595959',
+  blackShade: '#121212'
 };
 
 export interface Theme {
@@ -45,8 +48,8 @@ export interface Theme {
 export const THEME_DARK: Theme = {
   major: PALETTE.gray,
   majorLight: PALETTE.grayLight,
-  majorShade: PALETTE.grayShade,
-  majorDark: PALETTE.grayDark,
+  majorShade: PALETTE.nextGrayDark, //2
+  majorDark: PALETTE.blackShade, //1
   minor: PALETTE.white,
   minorLight: PALETTE.whiteLight,
   minorShade: PALETTE.whiteShade,
