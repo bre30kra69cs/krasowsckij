@@ -3,7 +3,7 @@ import {css} from '@linaria/core';
 import {CFC} from '../../types/react';
 import {bem} from '../../bem';
 
-const main = css`
+const row = css`
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
@@ -15,7 +15,7 @@ interface Props {
 
 export const Row: CFC<Props> = ({children, className, onClick}) => {
   return (
-    <div className={bem(main, className)} onClick={onClick}>
+    <div className={bem(row, className)} onClick={onClick}>
       {children}
     </div>
   );

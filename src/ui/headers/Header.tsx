@@ -30,12 +30,8 @@ const main = css`
   }
 `;
 
-const link = css`
+const headerLink = css`
   padding: 0 ${unit(3, px)};
-
-  &__active {
-    color: ${color('decore')};
-  }
 `;
 
 const segment = css`
@@ -77,10 +73,10 @@ export const Header: CFC<Props> = ({className, onMenu}) => {
     >
       <Row className={bem({[segment]: {start: true}})}></Row>
       <Row className={bem({[segment]: {center: true}})}>
-        <InternalLink path="home" className={bem({[link]: {active: path === route('home')}})}>
+        <InternalLink path="home" className={headerLink} active={path === route('home')}>
           {capitalize(t('home'))}
         </InternalLink>
-        <InternalLink path="about" className={bem({[link]: {active: path === route('about')}})}>
+        <InternalLink path="about" className={headerLink} active={path === route('about')}>
           {capitalize(t('about'))}
         </InternalLink>
       </Row>

@@ -46,14 +46,14 @@ export interface Theme {
 }
 
 export const THEME_DARK: Theme = {
-  major: PALETTE.gray,
-  majorLight: PALETTE.grayLight,
-  majorShade: PALETTE.nextGrayDark, //2
-  majorDark: PALETTE.blackShade, //1
-  minor: PALETTE.white,
-  minorLight: PALETTE.whiteLight,
-  minorShade: PALETTE.whiteShade,
-  minorDark: PALETTE.whiteDark,
+  majorLight: '#4c4c4c',
+  major: '#3c3c3c',
+  majorShade: '#2c2c2c', //2
+  majorDark: '#1c1c1c', //1
+  minorLight: '#fcfcfc',
+  minor: '#ececec',
+  minorShade: '#dcdcdc',
+  minorDark: '#cccccc',
   decore: PALETTE.pink,
   decoreLight: PALETTE.pinkLight,
   decoreShade: PALETTE.pinkShade,

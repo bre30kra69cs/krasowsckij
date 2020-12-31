@@ -4,35 +4,34 @@ import {unit, px} from '../../theme/units';
 import {color} from '../../theme/palette';
 import {bem} from '../../bem';
 
-export const mainInner = `
+const titleText = css`
   font-family: Arial, Helvetica, sans-serif;
   font-style: normal;
   font-weight: bold;
-  font-size: ${unit(3, px)};
   color: ${color('minor')};
-`;
 
-const main = css`
-  ${mainInner}
-
-  &__major {
-    color: ${color('minor')};
+  &__s {
+    font-size: ${unit(2.5, px)};
   }
 
-  &__minor {
-    color: ${color('minor')};
+  &__m {
+    font-size: ${unit(5, px)};
+  }
+
+  &__l {
+    font-size: ${unit(8, px)};
   }
 `;
 
 export interface Props {
-  type?: 'major' | 'minor';
+  size?: 's' | 'm' | 'l';
   onClick?: () => void;
 }
 
-export const Title: CFC<Props> = ({children, className, type = 'major', onClick}) => {
+export const TitleText: CFC<Props> = ({children, className, size = 's', onClick}) => {
   return (
-    <p className={bem({[main]: {[type]: true}}, className)} onClick={onClick}>
+    <span className={bem({[titleText]: {[size]: true}}, className)} onClick={onClick}>
       {children}
-    </p>
+    </span>
   );
 };

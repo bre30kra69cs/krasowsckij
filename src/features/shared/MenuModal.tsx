@@ -3,7 +3,7 @@ import {CFC} from '../../types/react';
 import {Modal} from '../../ui/modals/Modal';
 import {ModalContent} from '../../ui/modals/ModalContent';
 import {CardLine} from '../../ui/boxs/CardLine';
-import {Title} from '../../ui/typography/Title';
+import {TitleText} from '../../ui/typography/TitleText';
 import {ToggleTheme} from '../../ui/toggles/ToggleTheme';
 import {ToggleLng} from '../../ui/toggles/ToggleLng';
 import {ColLine} from '../../ui/boxs/ColLine';
@@ -47,11 +47,11 @@ export const MenuModal: CFC<Props> = ({onClose}) => {
       <ModalContent isClose onClose={onClose}>
         <ColLine>
           <CardLine>
-            <Title>{capitalize(t('theme'))}</Title>
+            <TitleText>{capitalize(t('theme'))}</TitleText>
             <ToggleTheme onToggle={toggleTheme} toggled={themeName === 'light'} />
           </CardLine>
           <CardLine>
-            <Title>{capitalize(t('language'))}</Title>
+            <TitleText>{capitalize(t('language'))}</TitleText>
             <ToggleLng onToggle={toggleLng} toggled={lng === 'en'} />
           </CardLine>
         </ColLine>

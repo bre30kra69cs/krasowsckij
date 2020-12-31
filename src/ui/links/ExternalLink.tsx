@@ -1,35 +1,17 @@
-import {css} from '@linaria/core';
 import {CFC} from '../../types/react';
-import {unit, px} from '../../theme/units';
-import {color} from '../../theme/palette';
+import {TitleText, Props as TitleTextProps} from '../typography/TitleText';
 import {bem} from '../../bem';
+import {LinkCN, Props as LinkCNProps} from './LinkCN';
 
-export const mainInner = `
-  font-family: Arial, Helvetica, sans-serif;
-  font-style: normal;
-  font-weight: bold;
-  font-size: ${unit(2, px)};
-  color: ${color('minor')};
-  outline: none;
+type Props = LinkCNProps &
+  TitleTextProps & {
+    path: string;
+  };
 
-  &:hover {
-    color: ${color('decore')};
-    transition: 0.4s;
-  }
-`;
-
-export const main = css`
-  ${mainInner}
-`;
-
-export interface Props {
-  path: string;
-}
-
-export const ExternalLink: CFC<Props> = ({children, className, path}) => {
+export const ExternalLink: CFC<Props> = ({children, className, path, size, active}) => {
   return (
-    <a href={path} className={bem(main, className)}>
-      {children}
+    <a href={path} className={bem({[LinkCN]: {active}}, className)}>
+      <TitleText size={size}>{children}</TitleText>
     </a>
   );
 };

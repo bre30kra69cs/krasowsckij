@@ -2,47 +2,34 @@ import {css} from '@linaria/core';
 import {CFC} from '../../types/react';
 import {Preview} from '../../types/data';
 import {Card} from './Card';
-import {Row} from '../boxs/Row';
-import {Text} from '../typography/Text';
+import {MainText} from '../typography/MainText';
 import {color} from '../../theme/palette';
 import {bem} from '../../bem';
 import {unit, px} from '../../theme/units';
 import {ColLine} from '../boxs/ColLine';
-import {Image} from '../images/Image';
 import {useInter} from '../../inter';
 import {InternalLink} from '../links/InternalLink';
 import {ReadLink} from '../links/ReadLink';
+import {CardImage} from '../images/CardImage';
 
-const main = css`
-  background-color: ${color('minor')};
+const acrticleCard = css`
+  background-color: ${color('majorLight')};
   width: ${unit(100, px)};
   box-shadow: 0 ${unit(0.2, px)} ${unit(0.5, px)};
 `;
 
-const imageCN = css`
-  background-color: ${color('majorLight')};
-  width: ${unit(100, px)};
-`;
+const acrticleCardPrevew = css`
+  text-align: justify;
 
-const imageCard = css`
-  width: ${unit(100, px)};
-  padding: 0;
-`;
-
-const titleCN = css`
-  font-size: ${unit(6, px)};
-  color: ${color('minorDark')};
-`;
-
-const link = css`
-  padding: ${unit(2, px)} 0;
+  &:first-letter {
+    margin-left: ${unit(4, px)};
+  }
 `;
 
 interface Props {
   info: Preview;
 }
 
-// TODO: extend link areas
 export const ArticleCard: CFC<Props> = ({info, className}) => {
   const {lng} = useInter();
 
@@ -51,24 +38,14 @@ export const ArticleCard: CFC<Props> = ({info, className}) => {
   const {title, preview, image} = target;
 
   return (
-    <Card className={bem(main, className)}>
-      <ColLine gap="s">
-        <Row className={link}>
-          <InternalLink path="article" className={titleCN} id={id}>
-            {title}
-          </InternalLink>
-        </Row>
-        <Row>
-          <Card className={imageCard}>
-            <Image className={imageCN} src={image} />
-          </Card>
-        </Row>
-        <Row>
-          <Text type="minor">{preview}</Text>
-        </Row>
-        <Row className={link}>
-          <ReadLink path="article" id={id} />
-        </Row>
+    <Card className={bem(acrticleCard, className)}>
+      <ColLine gap="m">
+        <InternalLink path="article" id={id} size="m">
+          {title}
+        </InternalLink>
+        <CardImage src={image} />
+        <MainText className={acrticleCardPrevew}>{preview}</MainText>
+        <ReadLink path="article" id={id} />
       </ColLine>
     </Card>
   );

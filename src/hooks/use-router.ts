@@ -17,6 +17,7 @@ export const useRouter = () => {
 
   const routeTo = useCallback(
     (path: keyof Routes, options?: Options) => {
+      console.log(options, path);
       router.push(route(path, options));
     },
     [router]

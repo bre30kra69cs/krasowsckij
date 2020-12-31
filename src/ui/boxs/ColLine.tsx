@@ -5,11 +5,7 @@ import {Row} from './Row';
 import {unit, px} from '../../theme/units';
 import {bem} from '../../bem';
 
-export interface Props {
-  gap?: 's' | 'm' | 'l';
-}
-
-const itemRow = css`
+const colLine = css`
   &__s {
     margin-bottom: ${unit(2, px)};
   }
@@ -23,6 +19,10 @@ const itemRow = css`
   }
 `;
 
+export interface Props {
+  gap?: 's' | 'm' | 'l';
+}
+
 export const ColLine: CFCS<Props> = ({children = [], className, gap = 'm'}) => {
   return (
     <Col className={className}>
@@ -30,7 +30,7 @@ export const ColLine: CFCS<Props> = ({children = [], className, gap = 'm'}) => {
         return (
           <Row
             key={index}
-            className={index !== children.length - 1 ? bem({[itemRow]: {[gap]: true}}) : ''}
+            className={index !== children.length - 1 ? bem({[colLine]: {[gap]: true}}) : ''}
           >
             {item}
           </Row>

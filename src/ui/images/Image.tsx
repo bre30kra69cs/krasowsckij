@@ -1,6 +1,6 @@
 import {CFC} from '../../types/react';
 
-interface Props {
+export interface Props {
   src?: string;
 }
 

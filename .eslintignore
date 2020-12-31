@@ -33,4 +33,5 @@ yarn-error.log*
 
 next.config.js
 lint-staged.config.js
+linaria.config.js
 packages

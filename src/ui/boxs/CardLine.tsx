@@ -5,7 +5,7 @@ import {Col} from './Col';
 import {unit, px} from '../../theme/units';
 import {bem} from '../../bem';
 
-const col = css`
+const cardLine = css`
   justify-content: flex-start;
 
   &__s {
@@ -30,8 +30,8 @@ export const CardLine: CFCS<Props> = ({className, children = [], gap = 'm'}) => 
 
   return (
     <Row className={className}>
-      <Col className={bem({[col]: {[gap]: true}})}>{head}</Col>
-      <Col className={bem({[col]: {[gap]: true}})}>{tail}</Col>
+      <Col className={bem({[cardLine]: {[gap]: true}})}>{head}</Col>
+      <Col className={bem({[cardLine]: {[gap]: true}})}>{tail}</Col>
     </Row>
   );
 };
