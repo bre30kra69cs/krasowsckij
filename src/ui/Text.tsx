@@ -4,12 +4,17 @@ import {unit, px} from '../theme/units';
 import {color} from '../theme/palette';
 import {bem} from '../bem';
 
-const main = css`
+export const mainInner = `
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell,
     'Open Sans', 'Helvetica Neue', sans-serif;
   font-style: normal;
   font-weight: normal;
   font-size: ${unit(2.5, px)};
+  color: ${color('minorShade')};
+`;
+
+const main = css`
+  ${mainInner}
 
   &__major {
     color: ${color('majorShade')};

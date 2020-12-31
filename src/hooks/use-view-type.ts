@@ -26,6 +26,18 @@ export const useViewType = () => {
   );
 
   useEffect(() => {
+    if (window.scrollY >= OFFSET) {
+      if (state.viewType === 'normal') {
+        dispatch(setSmalViewType);
+      }
+    } else {
+      if (state.viewType === 'small') {
+        dispatch(setNormalViewType);
+      }
+    }
+  }, []);
+
+  useEffect(() => {
     document.addEventListener('wheel', listner);
     return () => {
       document.removeEventListener('wheel', listner);

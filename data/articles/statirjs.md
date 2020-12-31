@@ -1,4 +1,4 @@
-![image](https://raw.githubusercontent.com/statirjs/page/master/assets/statirjs_text.png)
+# ![image](https://raw.githubusercontent.com/statirjs/page/master/assets/statirjs_text.png)
 
 ---
 
@@ -189,7 +189,7 @@ const increment = useDispatch((dispatch) => dispatch.counter.increment);
 
 ---
 
-\*Запоминаем №2: экшены разбиты на компоненты, но есть возможность получить всё состояние как у **redux\***
+_Запоминаем №2: экшены разбиты на компоненты, но есть возможность получить всё состояние как у **redux**_
 
 _Запоминаем №3: **statirjs** активно использует замыкания и позволяет манипулировать экшенами как если бы они были простыми функциями_
 

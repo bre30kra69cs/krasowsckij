@@ -13,9 +13,13 @@ export interface Props {
   onClick?: (event?: MouseEvent) => void;
 }
 
-export const Col: CFC<Props> = ({children, className, onClick}) => {
+export const Col: CFC<Props> = ({children, className, dangerouslySetInnerHTML, onClick}) => {
   return (
-    <div className={bem(main, className)} onClick={onClick}>
+    <div
+      className={bem(main, className)}
+      onClick={onClick}
+      dangerouslySetInnerHTML={dangerouslySetInnerHTML}
+    >
       {children}
     </div>
   );

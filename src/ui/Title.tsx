@@ -4,11 +4,16 @@ import {unit, px} from '../theme/units';
 import {color} from '../theme/palette';
 import {bem} from '../bem';
 
-const main = css`
+export const mainInner = `
   font-family: Arial, Helvetica, sans-serif;
   font-style: normal;
   font-weight: bold;
   font-size: ${unit(3, px)};
+  color: ${color('minorDark')};
+`;
+
+const main = css`
+  ${mainInner}
 
   &__major {
     color: ${color('majorDark')};
