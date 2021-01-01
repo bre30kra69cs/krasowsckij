@@ -1,7 +1,6 @@
 import {createContext, useContext, useState, useMemo} from 'react';
 import {CFC} from '../types/react';
 import {Lang} from '../types/inter';
-import {ConstMap} from '../types/values';
 import {useRouter} from '../hooks/use-router';
 import {cookieManager} from '../cookie';
 import dict from '../../dicts/dict.json';
@@ -10,12 +9,7 @@ type Dict = Record<Lang, Record<string, string>>;
 
 const DICT = dict as Dict;
 
-export const LNG_VALUES: ConstMap<Lang> = {
-  RU: 'ru',
-  EN: 'en'
-};
-
-export const DEFAULT_LNG = LNG_VALUES['RU'];
+export const DEFAULT_LNG: Lang = 'ru';
 
 interface InterContext {
   lng: Lang;
@@ -36,7 +30,7 @@ interface Props {
 const FALLBACK = 'NO_INTER';
 
 export const InterProvider: CFC<Props> = ({children, initLng}) => {
-  const [lng, setLng] = useState(initLng);
+  const [lng, setLng] = useState(initLng ?? DEFAULT_LNG);
 
   const router = useRouter();
 

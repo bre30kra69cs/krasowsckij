@@ -1,9 +1,6 @@
 module.exports = {
-  extends: ['stylelint-config-standard', "stylelint-prettier/recommended"],
-  plugins: ['stylelint-scss'],
+  extends: ['stylelint-config-standard', 'stylelint-prettier/recommended'],
   rules: {
-    'at-rule-no-unknown': null,
-    'scss/at-rule-no-unknown': true,
     'value-list-comma-newline-after': null
   }
 };

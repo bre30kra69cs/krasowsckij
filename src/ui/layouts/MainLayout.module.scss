@@ -1,8 +1,0 @@
-@use 'src/styles/boxes/col';
-
-.main {
-  @include col.main();
-
-  min-height: 100%;
-  flex: 1;
-}

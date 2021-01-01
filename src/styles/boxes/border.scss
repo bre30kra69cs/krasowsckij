@@ -1,6 +1,0 @@
-@use 'src/styles/theme/units';
-
-@mixin main() {
-  border-radius: units.px(1);
-  overflow: hidden;
-}

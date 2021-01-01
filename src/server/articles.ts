@@ -1,9 +1,8 @@
-import {Article} from '../types/data';
-import {loggerManager} from '../logger';
 import fs from 'fs';
 import path from 'path';
 import marked from 'marked';
-
+import {Article} from '../types/data';
+import {loggerManager} from './logger';
 import {registerLanguage, highlightAuto} from 'highlight.js';
 import javascript from 'highlight.js/lib/languages/javascript';
 

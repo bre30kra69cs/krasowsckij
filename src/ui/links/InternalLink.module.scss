@@ -1,7 +1,0 @@
-@use 'src/styles/typography/title';
-@use 'src/styles/links/link';
-
-.main {
-  @include title.main('m');
-  @include link.main();
-}

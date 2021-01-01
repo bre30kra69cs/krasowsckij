@@ -1,8 +1,0 @@
-@use 'src/styles/theme/units';
-@use 'src/styles/boxes/border';
-
-@mixin main {
-  @include border.main();
-
-  padding: units.vw(1);
-}

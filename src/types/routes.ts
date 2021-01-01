@@ -23,7 +23,7 @@ export interface Routes {
 }
 
 export interface PageProps extends Query {
-  flags: Flags;
+  flags?: Flags;
 }
 
 export interface HomePageProps extends PageProps {

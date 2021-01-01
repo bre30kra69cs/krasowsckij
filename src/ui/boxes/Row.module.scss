@@ -1,5 +1,0 @@
-@use 'src/styles/boxes/row';
-
-.main {
-  @include row.main(flex-start, stretch);
-}

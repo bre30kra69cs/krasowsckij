@@ -1,7 +1,7 @@
-import {Preview} from '../types/data';
-import {loggerManager} from '../logger';
 import fs from 'fs';
 import path from 'path';
+import {Preview} from '../types/data';
+import {loggerManager} from './logger';
 
 const PREVIEW_DIR = path.join(process.cwd(), 'data/preview');
 
