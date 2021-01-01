@@ -1,0 +1,5 @@
+@use 'src/styles/theme/units';
+
+@mixin main {
+  box-shadow: 0 units.px(0.5) 0 units.px(0.05);
+}

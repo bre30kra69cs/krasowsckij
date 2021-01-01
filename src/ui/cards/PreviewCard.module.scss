@@ -1,0 +1,28 @@
+@use 'src/styles/boxes/col';
+@use 'src/styles/boxes/card';
+@use 'src/styles/boxes/shadow';
+@use 'src/styles/theme/colors';
+@use 'src/styles/theme/units';
+
+.main {
+  @include shadow.main();
+  @include card.main();
+
+  background-color: colors.color('majorLight');
+}
+
+.colLine {
+  @include col.main(flex-start, flex-start);
+}
+
+.text {
+  text-align: justify;
+
+  &::first-letter {
+    margin-left: units.vh(1);
+  }
+}
+
+.link {
+  align-self: flex-start;
+}

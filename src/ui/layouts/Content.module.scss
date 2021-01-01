@@ -1,0 +1,9 @@
+@use 'src/styles/boxes/col';
+@use 'src/styles/theme/units';
+
+.main {
+  @include col.main(flex-start, stretch);
+
+  padding: units.vh(1.5) units.vw(1) units.vh(4) units.vw(1);
+  flex: 1;
+}

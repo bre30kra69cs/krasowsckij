@@ -2,7 +2,7 @@
 @use 'src/styles/theme/colors';
 
 @mixin main($fontSize: 's', $color: 'minorNormal') {
-  font-size: units.fontSize($fontSize);
+  font-size: units.fontsize($fontSize);
   font-style: normal;
   font-weight: normal;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell,

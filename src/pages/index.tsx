@@ -32,13 +32,13 @@ export const getServerSideProps: GetServerSideProps<HomePageProps> = async (cont
   };
 };
 
-const Home: CFC<HomePageProps> = ({theme, lng, flags}) => {
+const Home: CFC<HomePageProps> = ({theme, lng, previews, flags}) => {
   return (
     <StoreProvider>
       <FlagsProvider initFlags={flags}>
         <InterProvider initLng={lng}>
           <ThemeProvider initTheme={theme}>
-            <HomePage />
+            <HomePage previews={previews} />
           </ThemeProvider>
         </InterProvider>
       </FlagsProvider>

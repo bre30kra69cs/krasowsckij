@@ -1,12 +1,14 @@
 @use 'src/styles/typography/title';
 @use 'src/styles/links/link';
-@use 'src/styles/boxes/col';
+@use 'src/styles/links/border';
 @use 'src/styles/theme/units';
+@use 'src/styles/boxes/row';
 
 .main {
-  @include col.main(center, center);
+  @include row.main(center, center);
+  @include border.main();
   @include title.main('s');
   @include link.main();
 
-  padding: 0 units.vw(0.5);
+  padding: units.vw(0.5);
 }

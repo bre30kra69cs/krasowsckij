@@ -28,6 +28,30 @@ $REM: 0.8;
   @return remify(scale($value, $REM));
 }
 
+// vw
+
+$VW: 4;
+
+@function vwify($value) {
+  @return #{$value}vw;
+}
+
+@function vw($value) {
+  @return vwify(scale($value, $VW));
+}
+
+// vw
+
+$VH: 4;
+
+@function vhify($value) {
+  @return #{$value}vh;
+}
+
+@function vh($value) {
+  @return vhify(scale($value, $VH));
+}
+
 // transition
 
 $TRANSITION: 0.4;
@@ -38,27 +62,38 @@ $TRANSITION: 0.4;
 
 // fonts
 
-$smallTextSize: scale(2, $REM);
-$normalTextSize: scale(3, $REM);
-$largeTextSize: scale(5, $REM);
-$extraTextSize: scale(8, $REM);
+@function smallTextSize() {
+  @return vw(1.2);
+}
 
-@function fontSize($value) {
+@function normalTextSize() {
+  @return vw(1.4);
+}
+
+@function largeTextSize() {
+  @return vw(1.6);
+}
+
+@function extraTextSize() {
+  @return vw(1.8);
+}
+
+@function fontsize($value) {
   @if $value == 's' {
-    @return remify($smallTextSize);
+    @return smallTextSize();
   }
 
   @if $value == 'm' {
-    @return remify($normalTextSize);
+    @return normalTextSize();
   }
 
   @if $value == 'l' {
-    @return remify($largeTextSize);
+    @return largeTextSize();
   }
 
   @if $value == 'xl' {
-    @return remify($extraTextSize);
+    @return extraTextSize();
   }
 
-  @return remify($smallTextSize);
+  @return smallTextSize();
 }

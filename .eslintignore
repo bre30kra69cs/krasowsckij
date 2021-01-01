@@ -35,3 +35,4 @@ next.config.js
 lint-staged.config.js
 linaria.config.js
 packages
+stylelint.config.js

@@ -10,6 +10,7 @@ $HEADER_HEIGHT: units.rem(7);
 }
 
 @mixin section($justifyContent, $flex: 1) {
-  @include row.main($justifyContent, scretch);
+  @include row.main($justifyContent, stretch);
+
   flex: $flex;
 }

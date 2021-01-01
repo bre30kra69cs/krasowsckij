@@ -1,0 +1,10 @@
+@use 'src/styles/boxes/border';
+@use 'src/styles/images/image';
+@use 'src/styles/theme/colors';
+
+.main {
+  @include image.main();
+  @include border.main();
+
+  background-color: colors.color('minorNormal');
+}

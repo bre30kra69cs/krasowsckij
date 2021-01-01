@@ -2,6 +2,6 @@
 @use 'src/styles/links/link';
 
 .main {
-  @include title.main('s', 'minorNormal');
+  @include title.main('m');
   @include link.main();
 }
