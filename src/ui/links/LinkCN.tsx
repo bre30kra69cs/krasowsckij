@@ -31,3 +31,15 @@ export const LinkCN = css`
     }
   }
 `;
+
+// TODO: replace to link component
+export const LinkAncherCN = `
+  outline: none;
+  color: ${color('decore')};
+  transition: 0.4s;
+
+  &:hover {
+    color: ${color('decoreShade')};
+    transition: 0.4s;
+  }
+`;

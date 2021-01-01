@@ -3,10 +3,14 @@ import {css} from '@linaria/core';
 import {CFC} from '../../types/react';
 import {bem} from '../../bem';
 
-const col = css`
+const template = `
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
+`;
+
+const col = css`
+  ${template}
 `;
 
 export interface Props {
@@ -23,4 +27,9 @@ export const Col: CFC<Props> = ({children, className, dangerouslySetInnerHTML, o
       {children}
     </div>
   );
+};
+
+export const ColStyles = {
+  template,
+  col
 };

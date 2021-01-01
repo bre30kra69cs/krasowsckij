@@ -3,13 +3,22 @@ import {CFC} from '../../types/react';
 import {bem} from '../../bem';
 import {Col} from '../boxs/Col';
 import {unit, px} from '../../theme/units';
+import {BorderStyles} from './Border';
+
+const template = `
+  padding: ${unit(2, px)};
+  ${BorderStyles.template}
+`;
 
 const card = css`
-  padding: ${unit(2, px)};
-  border-radius: ${unit(1, px)};
-  overflow: hidden;
+  ${template}
 `;
 
 export const Card: CFC = ({children, className}) => {
   return <Col className={bem(card, className)}>{children}</Col>;
+};
+
+export const CardStyles = {
+  template,
+  card
 };
