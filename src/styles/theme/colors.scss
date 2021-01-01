@@ -1,0 +1,74 @@
+// major
+
+$majorLight: lighten(black, 30%);
+$majorNormal: lighten(black, 20%);
+$majorShade: lighten(black, 10%);
+$majorDark: black;
+
+// minor
+
+$minorLight: white;
+$minorNormal: darken(white, 10%);
+$minorShade: darken(white, 20%);
+$minorDark: darken(white, 30%);
+
+// decore
+
+$decoreLight: violet;
+$decoreNormal: darken(violet, 10%);
+$decoreShade: darken(violet, 20%);
+$decoreDark: darken(violet, 30%);
+
+$fallback: transparent;
+
+@function color($value) {
+  @if $value == 'majorLight' {
+    @return $majorLight;
+  }
+
+  @if $value == 'majorNormal' {
+    @return $majorNormal;
+  }
+
+  @if $value == 'majorShade' {
+    @return $majorShade;
+  }
+
+  @if $value == 'majorDark' {
+    @return $majorDark;
+  }
+
+  @if $value == 'minorLight' {
+    @return $minorLight;
+  }
+
+  @if $value == 'minorNormal' {
+    @return $minorNormal;
+  }
+
+  @if $value == 'minorShade' {
+    @return $minorShade;
+  }
+
+  @if $value == 'minorDark' {
+    @return $minorDark;
+  }
+
+  @if $value == 'decoreLight' {
+    @return $decoreLight;
+  }
+
+  @if $value == 'decoreNormal' {
+    @return $decoreNormal;
+  }
+
+  @if $value == 'decoreShade' {
+    @return $decoreShade;
+  }
+
+  @if $value == 'decoreDark' {
+    @return $decoreDark;
+  }
+
+  @return $fallback;
+}

@@ -1,13 +1,16 @@
+import NextLink from 'next/link';
 import {CFC} from '../../types/react';
-import {TitleText, Props as TitleTextProps} from '../typography/TitleText';
-import {NextLink, Props as NextLinkProps} from './NextLink';
+import styles from './InternalLink.module.scss';
+import cn from 'classnames';
 
-export type Props = NextLinkProps & TitleTextProps;
+interface Props {
+  href?: string;
+}
 
-export const InternalLink: CFC<Props> = ({size, children, ...rest}) => {
+export const InternalLink: CFC<Props> = ({className, children, href = ''}) => {
   return (
-    <NextLink {...rest}>
-      <TitleText size={size}>{children}</TitleText>
+    <NextLink href={href}>
+      <a className={cn(styles.main, className)}>{children}</a>
     </NextLink>
   );
 };

@@ -1,6 +1,5 @@
 import {GetServerSideProps} from 'next';
 import {CFC} from '../../types/react';
-import {ArticlePage} from '../../features/article/Page';
 import {InterProvider} from '../../inter';
 import {ThemeProvider} from '../../theme/theme';
 import {ArticlePageProps, Options} from '../../types/routes';
@@ -35,13 +34,13 @@ export const getServerSideProps: GetServerSideProps<ArticlePageProps, Required<O
   };
 };
 
-const Article: CFC<ArticlePageProps> = ({theme, lng, article, flags}) => {
+const Article: CFC<ArticlePageProps> = ({theme, lng, flags}) => {
   return (
     <StoreProvider>
       <FlagsProvider initFlags={flags}>
         <InterProvider initLng={lng}>
           <ThemeProvider initTheme={theme}>
-            <ArticlePage article={article} />
+            <div />
           </ThemeProvider>
         </InterProvider>
       </FlagsProvider>

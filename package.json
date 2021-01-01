@@ -14,28 +14,20 @@
     "md:parse": "node ./packages/mdparser"
   },
   "dependencies": {
-    "@linaria/babel-preset": "^3.0.0-beta.1",
-    "@linaria/core": "^3.0.0-beta.1",
-    "@linaria/react": "^3.0.0-beta.1",
-    "@linaria/shaker": "^3.0.0-beta.1",
-    "@linaria/webpack-loader": "^3.0.0-beta.1",
-    "@zeit/next-css": "^1.0.1",
     "classnames": "^2.2.6",
     "highlight.js": "^10.5.0",
     "marked": "^1.2.7",
     "next": "10.0.4",
     "react": "17.0.1",
     "react-dom": "17.0.1",
-    "sanitize-html": "^2.3.0"
+    "sass": "^1.32.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.12.10",
     "@types/classnames": "^2.2.11",
     "@types/marked": "^1.2.1",
     "@types/node": "^14.14.14",
     "@types/react": "^17.0.0",
     "@types/react-dom": "^17.0.0",
-    "@types/sanitize-html": "^1.27.0",
     "@typescript-eslint/eslint-plugin": "^4.11.0",
     "@typescript-eslint/parser": "^4.11.0",
     "eslint": "^7.16.0",

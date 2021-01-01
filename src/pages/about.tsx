@@ -1,6 +1,5 @@
 import {GetServerSideProps} from 'next';
 import {CFC} from '../types/react';
-import {AboutPage} from '../features/about/Page';
 import {InterProvider} from '../inter';
 import {ThemeProvider} from '../theme/theme';
 import {PageProps} from '../types/routes';
@@ -34,7 +33,7 @@ const About: CFC<PageProps> = ({theme, lng, flags}) => {
       <FlagsProvider initFlags={flags}>
         <InterProvider initLng={lng}>
           <ThemeProvider initTheme={theme}>
-            <AboutPage />
+            <div />
           </ThemeProvider>
         </InterProvider>
       </FlagsProvider>

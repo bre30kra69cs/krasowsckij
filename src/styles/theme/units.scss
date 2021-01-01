@@ -1,0 +1,64 @@
+// scale
+
+@function scale($value, $scale) {
+  @return $value * $scale;
+}
+
+// px
+
+$UNIT: 8;
+
+@function pxify($value) {
+  @return #{$value}px;
+}
+
+@function px($value) {
+  @return pxify(scale($value, $UNIT));
+}
+
+// rem
+
+$REM: 0.8;
+
+@function remify($value) {
+  @return #{$value}rem;
+}
+
+@function rem($value) {
+  @return remify(scale($value, $REM));
+}
+
+// transition
+
+$TRANSITION: 0.4;
+
+@function transition($value: 1) {
+  @return #{$value * $TRANSITION}s;
+}
+
+// fonts
+
+$smallTextSize: scale(2, $REM);
+$normalTextSize: scale(3, $REM);
+$largeTextSize: scale(5, $REM);
+$extraTextSize: scale(8, $REM);
+
+@function fontSize($value) {
+  @if $value == 's' {
+    @return remify($smallTextSize);
+  }
+
+  @if $value == 'm' {
+    @return remify($normalTextSize);
+  }
+
+  @if $value == 'l' {
+    @return remify($largeTextSize);
+  }
+
+  @if $value == 'xl' {
+    @return remify($extraTextSize);
+  }
+
+  @return remify($smallTextSize);
+}

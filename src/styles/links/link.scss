@@ -1,0 +1,15 @@
+@use 'src/styles/theme/colors';
+@use 'src/styles/theme/units';
+
+@mixin main {
+  cursor: pointer;
+  outline: none;
+  text-decoration: none;
+  text-align: center;
+  transition: units.transition();
+
+  &:hover {
+    color: colors.color('decoreDark');
+    transition: units.transition();
+  }
+}

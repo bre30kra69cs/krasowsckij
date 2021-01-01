@@ -1,0 +1,15 @@
+@use 'src/styles/boxes/row';
+@use 'src/styles/theme/units';
+@use 'src/styles/theme/colors';
+
+$HEADER_HEIGHT: units.rem(7);
+
+@mixin main {
+  height: $HEADER_HEIGHT;
+  background-color: colors.color('majorDark');
+}
+
+@mixin section($justifyContent, $flex: 1) {
+  @include row.main($justifyContent, scretch);
+  flex: $flex;
+}

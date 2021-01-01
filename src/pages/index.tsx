@@ -1,6 +1,6 @@
 import {GetServerSideProps} from 'next';
 import {CFC} from '../types/react';
-import {HomePage} from '../features/home/Page';
+import {HomePage} from '../features/home/HomePage';
 import {InterProvider} from '../inter';
 import {ThemeProvider} from '../theme/theme';
 import {HomePageProps} from '../types/routes';
@@ -32,13 +32,13 @@ export const getServerSideProps: GetServerSideProps<HomePageProps> = async (cont
   };
 };
 
-const Home: CFC<HomePageProps> = ({theme, lng, previews, flags}) => {
+const Home: CFC<HomePageProps> = ({theme, lng, flags}) => {
   return (
     <StoreProvider>
       <FlagsProvider initFlags={flags}>
         <InterProvider initLng={lng}>
           <ThemeProvider initTheme={theme}>
-            <HomePage previews={previews} />
+            <HomePage />
           </ThemeProvider>
         </InterProvider>
       </FlagsProvider>

@@ -1,0 +1,11 @@
+@use 'src/styles/typography/title';
+@use 'src/styles/links/link';
+@use 'src/styles/boxes/col';
+@use 'src/styles/theme/units';
+
+.main {
+  padding: 0 units.rem(2);
+  @include col.main(center, center);
+  @include title.main('s', 'minorNormal');
+  @include link.main();
+}

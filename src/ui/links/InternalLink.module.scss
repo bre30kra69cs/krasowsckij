@@ -1,0 +1,7 @@
+@use 'src/styles/typography/title';
+@use 'src/styles/links/link';
+
+.main {
+  @include title.main('s', 'minorNormal');
+  @include link.main();
+}
